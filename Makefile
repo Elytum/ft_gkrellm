@@ -18,6 +18,7 @@ NAME = ft_gkrellm
 
 #--------------Sources----------------------#
 SRCS =	main.cpp					\
+		graphic/ModuleRaw.cpp		\
 		graphic/MonitorModule.cpp	\
 		graphic/Window.cpp
 

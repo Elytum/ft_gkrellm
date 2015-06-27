@@ -1,16 +1,12 @@
 #include <Window.hpp>
 
-Window::Window() : opened(false), modules(new MonitorModule*[MAX_HEIGHT_MODULES]),
+Window::Window() : opened(false),
 	window_red(NULL), window_green(NULL), window_blue(NULL),
 	window_yellow(NULL), window_white(NULL), main_window(NULL) {
-	for (int i = 0; i < MAX_HEIGHT_MODULES; ++i)
-		modules[i] = new MonitorModule[MAX_WIDTH_MODULES];
+		modules.resize(MAX_WIDTH_MODULES);
 }
 
 Window::~Window() {
-	for (int i = 0; i < MAX_HEIGHT_MODULES; ++i)
-		delete [] modules[i];
-	delete [] modules;
 	if (window_red)
 		delwin(window_red);
 	if (window_green)
@@ -87,7 +83,7 @@ void	Window::clr( void ) const {
 }
 
 void		Window::print( int x, int y, char const *c ) const {
-	std::cout << "x: " << x << ", y: " << y << ", c: '" << c << "', width: " << width << ", height: " << height << std::endl;
+	// std::cout << "x: " << x << ", y: " << y << ", c: '" << c << "', width: " << width << ", height: " << height << std::endl;
 	if (x < 0 || y < 0 || x >= width || y >= height)
 		return ;
 	mvwprintw(main_window, y, x, c);
@@ -130,45 +126,21 @@ void	Window::flush( void )	{
 	wrefresh(main_window);
 }
 
-void		Window::addModule( MonitorModule & module ) {
-	int line = module.getLine();
-	int column = module.getColumn();
-
-	if (line < 0) {
-		module.setLine(0);
-		line = 0;
-	}
-	else if (line >= MAX_HEIGHT_MODULES) {
-		module.setLine(MAX_HEIGHT_MODULES - 1);
-		line = MAX_HEIGHT_MODULES - 1;
-	}
-	if (column < 0) {
-		module.setColumn(0);
-		column = 0;
-	}
-	else if (column >= MAX_WIDTH_MODULES) {
-		module.setColumn(MAX_WIDTH_MODULES - 1);
-		column = MAX_WIDTH_MODULES - 1;
-	}
-	modules[line][column] = module;
+void		Window::addModule( MonitorModule & module, int raw ) {
+	modules[raw].addModule(module);
 }
 
-void		Window::drawModule( MonitorModule & module ) {
-	int width = module.getWidth();
-	int height = module.getHeight();
+void		Window::refresh( void ) const {
+	int	i = modules.size();
+	int p = 0;
+	int posX = 0;
 
-	int y = 0;
-	int x;
-	while (y < height) {
-		x = 0;
-		while (x < width) {
-			print(x, y, "m");
-			++x;
-		}
-		++y;
+	while (p < i) {
+		modules[p].draw(posX, 0, *this);
+		posX += modules[p].getWidth();
+		++p;
 	}
 }
-
 
 
 

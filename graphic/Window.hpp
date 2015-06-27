@@ -3,14 +3,16 @@
 
 # include <iostream>
 # include <list>
+# include <vector>
 # include <sys/ioctl.h>
 # include <unistd.h>
-
-# include <MonitorModule.hpp>
 # include <ncurses.h>
 
-#define MAX_WIDTH_MODULES 50
-#define MAX_HEIGHT_MODULES 50
+# include <ModuleRaw.hpp>
+# include <MonitorModule.hpp>
+# include <Config.hpp>
+
+class ModuleRaw;
 
 class Window
 {
@@ -28,19 +30,20 @@ public:
 	void		print( int x, int y, char const c, char const color ) const;
 	void		flush( void );
 
-	void		addModule( MonitorModule & module );
-	void		drawModule( MonitorModule & module );
+	void		addModule( MonitorModule & module, int raw );
+	void		refresh( void ) const;
 
-	bool				opened;
-	MonitorModule		**modules;
-	WINDOW				*window_red;
-	WINDOW				*window_green;
-	WINDOW				*window_blue;
-	WINDOW				*window_yellow;
-	WINDOW				*window_white;
-	WINDOW				*main_window;
-	int					height;
-	int					width;
+	bool					opened;
+	std::vector<ModuleRaw>	modules;
+
+	WINDOW		*window_red;
+	WINDOW		*window_green;
+	WINDOW		*window_blue;
+	WINDOW		*window_yellow;
+	WINDOW		*window_white;
+	WINDOW		*main_window;
+	int			height;
+	int			width;
 	
 };
 
