@@ -21,7 +21,7 @@ SRCS =	main.cpp					\
 		graphic/ModuleRaw.cpp		\
 		graphic/MonitorModule.cpp	\
 		graphic/Window.cpp			\
-		modules/RAMModule			\
+		modules/RAMModule.cpp
 
 INC = -I./graphic -I./modules
 

@@ -1,20 +1,22 @@
-#include <MonitorModule.hpp>
-#include <Window.hpp>
+#include "graphic/MonitorModule.hpp"
+#include "graphic/Window.hpp"
+#include "modules/RAMModule.hpp"
 
 int		main( void )
 {
 	Window			win;
 	MonitorModule	mod;
-	MonitorModule	test("Test");
+	RAMModule	test;
+
 
 	win.open();
 	win.addModule(mod, 0);
 	win.addModule(mod, 0);
 	win.addModule(test, 1);
 	win.addModule(mod, 1);
-	win.addModule(test, 1);
 	win.addModule(mod, 1);
 	win.addModule(mod, 3);
+	win.addModule(test, 4);
 	win.refresh();
 	// win.drawModule(mod);
 	
