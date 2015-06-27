@@ -125,8 +125,8 @@ void	Window::flush( void )	{
 	wrefresh(main_window);
 }
 
-void		Window::addModule( MonitorModule & module, int raw ) {
-	modules[raw].addModule(module);
+void		Window::addModule( MonitorModule & module, int row ) {
+	modules[row].addModule(module);
 }
 
 void		Window::refresh( void ) const {
