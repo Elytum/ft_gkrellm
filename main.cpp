@@ -1,8 +1,17 @@
 #include <MonitorModule.hpp>
 #include <Window.hpp>
+#include <sys/types.h>
+#include <sys/sysctl.h>
+#include "OSinfo.class.hpp"
+
 
 int		main( void )
 {
+	OSinfo		instance;		
+	return 0;
+}
+
+/*
 	Window			win;
 	MonitorModule	mod;
 	MonitorModule	test("Test");
@@ -25,13 +34,5 @@ int		main( void )
 	win.close();
 	return (0);
 	(void)win;
-}
-
-
-/*
-Monitor module: Pointeur sur fonction qui prend un x, y, width, height et window
-et qui affiche en fonction.
-
-Exemple: cpuInfo
 
 */
