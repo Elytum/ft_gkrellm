@@ -6,7 +6,7 @@
 #    By: achazal <achazal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 11:54:29 by achazal           #+#    #+#              #
-#    Updated: 2014/12/13 12:55:35 by achazal          ###   ########.fr        #
+#    Updated: 2015/06/28 01:24:28 by bwanlin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ SRCS =	main.cpp					\
 		graphic/ModuleRow.cpp		\
 		graphic/MonitorModule.cpp	\
 		graphic/Window.cpp			\
+		OSinfo.class.cpp			\
+		modules/RAMModule.cpp		\
 		modules/FooBar.cpp
 
 INC = -I./graphic -I./modules
