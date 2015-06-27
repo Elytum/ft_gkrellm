@@ -14,9 +14,12 @@ FooBar::~FooBar( void ) {
 }
 	
 void	FooBar::drawContent( int posX, int posY, int width, int height, Window const & win ) const {
-	win.print(posX, posY, "42");
-	(void)width;
-	(void)height;
-	(void)posY;
-	(void)posX;
+	// win.print(posX, posY, "42");
+	// (void)width;
+	// (void)height;
+	for (int x = 0; x < width; ++x) {
+		for (int y = 0; y < height; ++y) {
+			win.print(posX + x, posY + y, "f");
+		}
+	}
 }
