@@ -30,12 +30,12 @@ public:
 	void		print( int x, int y, char const c, char const color ) const;
 	void		flush( void );
 
-	void		addModule( MonitorModule & module, int row );
+	void		addModule( MonitorModule * module, int row );
 	void		refresh( void ) const;
 	WINDOW*		getWindow( void ) const;
 
-	bool					opened;
-	std::vector<ModuleRow>	modules;
+	bool						opened;
+	std::vector<ModuleRow>		modules;
 
 	WINDOW		*window_red;
 	WINDOW		*window_green;

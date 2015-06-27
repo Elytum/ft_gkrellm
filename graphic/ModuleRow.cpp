@@ -6,11 +6,11 @@ ModuleRow::ModuleRow( void ) : width(DEFAULT_WIDTH) {
 ModuleRow::~ModuleRow( void ) {
 }
 
-void								ModuleRow::addModule( MonitorModule & mod ) {
+void								ModuleRow::addModule( MonitorModule * mod ) {
 	modules.push_back(mod);
 }
 
-const std::vector<MonitorModule>	ModuleRow::getModules( void ) const {
+const std::vector<MonitorModule *>	ModuleRow::getModules( void ) const {
 	return modules;
 }
 
@@ -23,7 +23,7 @@ MonitorModule&						ModuleRow::operator[](int pos)	{
 		throw std::exception();
 	else if (pos >= static_cast<int>(modules.size()))
 		modules.resize(pos + 1);
-	return modules[pos];
+	return *modules[pos];
 };
 
 void								ModuleRow::draw( int x, int y, Window const & win ) const {
@@ -31,8 +31,8 @@ void								ModuleRow::draw( int x, int y, Window const & win ) const {
 	int i = 0;
 
 	while (i < s) {
-		modules[i].draw(x, y, width, win);
-		y += modules[i].getHeight();
+		modules[i]->draw(x, y, width, win);
+		y += modules[i]->getHeight();
 		++i;
 	}
 }
