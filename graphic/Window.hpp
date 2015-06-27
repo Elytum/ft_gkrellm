@@ -32,6 +32,7 @@ public:
 
 	void		addModule( MonitorModule & module, int raw );
 	void		refresh( void ) const;
+	WINDOW*		getWindow( void ) const;
 
 	bool					opened;
 	std::vector<ModuleRaw>	modules;
