@@ -83,7 +83,6 @@ void	Window::clr( void ) const {
 }
 
 void		Window::print( int x, int y, char const *c ) const {
-	// std::cout << "x: " << x << ", y: " << y << ", c: '" << c << "', width: " << width << ", height: " << height << std::endl;
 	if (x < 0 || y < 0 || x >= width || y >= height)
 		return ;
 	mvwprintw(main_window, y, x, c);
@@ -126,8 +125,8 @@ void	Window::flush( void )	{
 	wrefresh(main_window);
 }
 
-void		Window::addModule( MonitorModule & module, int raw ) {
-	modules[raw].addModule(module);
+void		Window::addModule( MonitorModule & module, int row ) {
+	modules[row].addModule(module);
 }
 
 void		Window::refresh( void ) const {
@@ -142,7 +141,9 @@ void		Window::refresh( void ) const {
 	}
 }
 
-
+WINDOW*		Window::getWindow( void ) const {
+	return main_window;
+}
 
 
 

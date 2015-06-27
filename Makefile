@@ -6,7 +6,7 @@
 #    By: achazal <achazal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 11:54:29 by achazal           #+#    #+#              #
-#    Updated: 2015/06/27 23:19:25 by bwanlin          ###   ########.fr        #
+#    Updated: 2015/06/28 01:24:28 by bwanlin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,11 @@ NAME = ft_gkrellm
 
 #--------------Sources----------------------#
 SRCS =	main.cpp					\
-		graphic/ModuleRaw.cpp		\
+		graphic/ModuleRow.cpp		\
 		graphic/MonitorModule.cpp	\
 		graphic/Window.cpp			\
-		OSinfo.class.cpp
+		OSinfo.class.cpp			\
+		modules/RAMModule.cpp
 
 INC = -I./graphic -I./modules
 

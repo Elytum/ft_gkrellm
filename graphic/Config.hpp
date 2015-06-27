@@ -11,7 +11,7 @@ enum position {
 	RIGHT = 3
 };
 
-#define DEFAULT_HEIGHT 8
-#define DEFAULT_WIDTH 8
+#define DEFAULT_HEIGHT 15
+#define DEFAULT_WIDTH 15
 
 #endif

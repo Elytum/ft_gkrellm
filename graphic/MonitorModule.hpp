@@ -11,18 +11,19 @@ class MonitorModule : public IMonitorModule
 {
 public:
 	MonitorModule( void );
-	MonitorModule( std::string const & name );
+	MonitorModule( const char *name );
 	MonitorModule( MonitorModule const & cpy );
 	virtual	~MonitorModule( void );
 	
-	virtual void		setHeight( int height );
-	virtual int			getHeight( void ) const;
-	virtual void		draw( int posX, int posY, int width, Window const & win ) const;
+	virtual void				setHeight( int height );
+	virtual int					getHeight( void ) const;
+	virtual const std::string	getTitle( void ) const;
+	virtual void				draw( int posX, int posY, int width, Window const & win ) const;
 
 	MonitorModule&		operator=( MonitorModule const & cpy );
 private:
 	int					_height;
-	const std::string	name;
+	const std::string	_title;
 };
 
 #include <Window.hpp>

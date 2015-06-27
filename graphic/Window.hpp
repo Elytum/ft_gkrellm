@@ -8,11 +8,11 @@
 # include <unistd.h>
 # include <ncurses.h>
 
-# include <ModuleRaw.hpp>
+# include <ModuleRow.hpp>
 # include <MonitorModule.hpp>
 # include <Config.hpp>
 
-class ModuleRaw;
+class ModuleRow;
 
 class Window
 {
@@ -30,11 +30,12 @@ public:
 	void		print( int x, int y, char const c, char const color ) const;
 	void		flush( void );
 
-	void		addModule( MonitorModule & module, int raw );
+	void		addModule( MonitorModule & module, int row );
 	void		refresh( void ) const;
+	WINDOW*		getWindow( void ) const;
 
 	bool					opened;
-	std::vector<ModuleRaw>	modules;
+	std::vector<ModuleRow>	modules;
 
 	WINDOW		*window_red;
 	WINDOW		*window_green;
