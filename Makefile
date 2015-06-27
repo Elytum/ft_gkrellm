@@ -20,7 +20,8 @@ NAME = ft_gkrellm
 SRCS =	main.cpp					\
 		graphic/ModuleRaw.cpp		\
 		graphic/MonitorModule.cpp	\
-		graphic/Window.cpp
+		graphic/Window.cpp			\
+		modules/RAMModule			\
 
 INC = -I./graphic -I./modules
 
