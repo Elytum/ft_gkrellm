@@ -1,6 +1,6 @@
 #include "RAMModule.hpp"
 
-RAMModule::RAMModule( void )
+RAMModule::RAMModule( void ):MonitorModule()
 {
 
 }

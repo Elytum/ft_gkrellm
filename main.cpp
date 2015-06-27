@@ -6,24 +6,25 @@ int		main( void )
 {
 	Window			win;
 	MonitorModule	mod;
-	RAMModule	test;
+	RAMModule		test;
 
+	MonitorModule	tooBig("tooBiggggggg");
+	MonitorModule	tooSmall("a");
 
 	win.open();
-	win.addModule(mod, 0);
+	win.addModule(tooBig, 0);
 	win.addModule(mod, 0);
 	win.addModule(test, 1);
 	win.addModule(mod, 1);
 	win.addModule(mod, 1);
-	win.addModule(mod, 3);
-	win.addModule(test, 4);
-	win.refresh();
-	// win.drawModule(mod);
-	
-	// win.print(0, 0, "Lol");
-	win.flush();
-	char tmp[2];
-	read(1, tmp, 1);
+	win.addModule(tooBig, 3);
+	win.addModule(tooSmall, 6);
+	while (42) {
+		win.refresh();
+		win.flush();
+		if (wgetch(win.getWindow()) == 'a')
+			break;
+	}
 	win.close();
 	return (0);
 	(void)win;
