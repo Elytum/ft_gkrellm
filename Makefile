@@ -22,7 +22,7 @@ SRCS =	main.cpp					\
 		graphic/MonitorModule.cpp	\
 		graphic/Window.cpp
 
-INC = -I./graphic
+INC = -I./graphic -I./modules
 
 OBJS	=	$(SRCS:.cpp=.o)
 

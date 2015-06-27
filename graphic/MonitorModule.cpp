@@ -1,7 +1,10 @@
 #include <MonitorModule.hpp>
 #include <Window.hpp>
 
-MonitorModule::MonitorModule( void ) : _height(DEFAULT_HEIGHT)	{
+MonitorModule::MonitorModule( void ) : _height(DEFAULT_HEIGHT), name("")	{
+}
+
+MonitorModule::MonitorModule( std::string const & name ) : _height(DEFAULT_HEIGHT), name(name)	{
 }
 
 MonitorModule::MonitorModule( MonitorModule const & cpy ) {
@@ -25,14 +28,28 @@ MonitorModule&		MonitorModule::operator=(MonitorModule const & cpy) {
 }
 
 void		MonitorModule::draw( int posX, int posY, int width, Window const & win ) const {
-	int y = 0;
-	int x;
-	while (y < _height) {
-		x = 0;
-		while (x < width) {
-			win.print(posX + x, posY + y, "m");
-			++x;
-		}
-		++y;
+	// int y = 0;
+	// int x;
+
+	// win.print(posX, posY, "/");
+	// win.print(posX + width, posY, "\\");
+	// win.print(posX, posY + _height, "\\");
+	// win.print(posX + width, posY + _height, "/");
+
+	for (int x = 0; x < width; ++x) {
+		win.print(posX + x, posY, "_");
+		win.print(posX + x, posY + _height, "_");
 	}
+	for (int y = 1; y < _height; ++y) {
+		win.print(posX, posY + y, "|");
+		win.print(posX + _height, posY + y, "|");
+	}
+	// while (y < _height) {
+	// 	x = 0;
+	// 	while (x < width) {
+	// 		win.print(posX + x, posY + y, "m");
+	// 		++x;
+	// 	}
+	// 	++y;
+	// }
 }

@@ -5,14 +5,16 @@ int		main( void )
 {
 	Window			win;
 	MonitorModule	mod;
+	MonitorModule	test("Test");
 
 	win.open();
 	win.addModule(mod, 0);
 	win.addModule(mod, 0);
+	win.addModule(test, 1);
 	win.addModule(mod, 1);
+	win.addModule(test, 1);
 	win.addModule(mod, 1);
-	win.addModule(mod, 1);
-	win.addModule(mod, 1);
+	win.addModule(mod, 3);
 	win.refresh();
 	// win.drawModule(mod);
 	
@@ -24,3 +26,12 @@ int		main( void )
 	return (0);
 	(void)win;
 }
+
+
+/*
+Monitor module: Pointeur sur fonction qui prend un x, y, width, height et window
+et qui affiche en fonction.
+
+Exemple: cpuInfo
+
+*/

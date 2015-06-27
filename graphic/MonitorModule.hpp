@@ -3,6 +3,7 @@
 
 #include <IMonitorModule.hpp>
 #include <Config.hpp>
+#include <iostream>
 
 class Window;
 
@@ -10,6 +11,7 @@ class MonitorModule : public IMonitorModule
 {
 public:
 	MonitorModule( void );
+	MonitorModule( std::string const & name );
 	MonitorModule( MonitorModule const & cpy );
 	virtual	~MonitorModule( void );
 	
@@ -19,7 +21,8 @@ public:
 
 	MonitorModule&		operator=( MonitorModule const & cpy );
 private:
-	int		_height;
+	int					_height;
+	const std::string	name;
 };
 
 #include <Window.hpp>
