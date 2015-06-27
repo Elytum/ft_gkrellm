@@ -5,7 +5,13 @@
 MonitorModule::MonitorModule( void ) : _height(DEFAULT_HEIGHT), _title("")	{
 }
 
+MonitorModule::MonitorModule( int height ) : _height(height), _title("")	{
+}
+
 MonitorModule::MonitorModule( const char *title ) : _height(DEFAULT_HEIGHT), _title(title)	{
+}
+
+MonitorModule::MonitorModule( int height, const char *title ) : _height(height), _title(title)	{
 }
 
 MonitorModule::MonitorModule( MonitorModule const & cpy ) : _title(cpy._title) {
@@ -42,7 +48,7 @@ void		MonitorModule::draw( int posX, int posY, int width, Window const & win ) c
 	}
 	for (int y = 1; y <= _height; ++y) {
 		win.print(posX, posY + y, "|");
-		win.print(posX + _height, posY + y, "|");
+		win.print(posX + width, posY + y, "|");
 	}
 
 	if (_title.size()) {
