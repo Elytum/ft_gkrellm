@@ -6,6 +6,12 @@
 #include "TimeModule.hpp"
 #include "NameModule.hpp"
 
+
+//TODO
+//remove all c++11 functiosn (to_string)
+//add all monitormodule function to IMonitorModule (sujet)
+// si possible, laisser addmodule utiliser Imonitormodule
+//add un IMonitorDisplay qui contient tout les print, printbox, et printline
 int		main( void )
 {
 	Window			win;
@@ -15,10 +21,10 @@ int		main( void )
 	TimeModule*		infoTime = new TimeModule();
 
 	win.open();
-	//win.addModule(tooSmall, 42);
-	//win.addModule(infoOS, 42);
-	//win.addModule(infoTime, 42);
-	win.addModule(infoName, 42);
+	win.addModule(tooSmall, 1);
+	win.addModule(infoOS, 1);
+	win.addModule(infoTime, 1);
+	win.addModule(infoName, 1);
 	while (42) {
 		win.refresh();
 		win.flush();

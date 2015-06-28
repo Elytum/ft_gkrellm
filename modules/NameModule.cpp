@@ -31,7 +31,7 @@ NameModule &	NameModule::operator=( NameModule const& )
 	return (*this);
 }
 
-void		NameModule::drawContent( int posX, int posY, int width, int height, Window const & win ) const
+void		NameModule::drawContent( int posX, int posY, int width, int height, Window const & win )
 {
 	std::string		hostname;
 	std::string		username;

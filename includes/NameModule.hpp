@@ -40,7 +40,7 @@ public:
 
 	NameModule &	operator=( NameModule const& rhs );
 // private:
-	virtual void		drawContent( int x, int y, int w, int h, Window const& ) const;
+	virtual void		drawContent( int x, int y, int w, int h, Window const& );
 };
 
 #endif

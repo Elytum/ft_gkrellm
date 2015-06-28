@@ -18,7 +18,7 @@
 
 struct CPUcontainer
 {
-	int32_t		activecpu;
+	int32_t		activeccpu;
 	int32_t		cputype;
 	int32_t		cpufamily;
 	int64_t		memsize;
