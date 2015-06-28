@@ -85,10 +85,10 @@ void					NetworkModule::drawContent( int posX, int posY, int width, int height, 
 	xoffset[2] = (width - pckt_o.str().size()) / 2;
 	xoffset[3] = (width - byte_o.str().size()) / 2;
 
-	win.print(posX + xoffset[0], posY + 0, pckt_i.str().c_str(), BLUE);
-	win.print(posX + xoffset[1], posY + 1, byte_i.str().c_str(), BLUE);
-	win.print(posX + xoffset[2], posY + 2, pckt_o.str().c_str(), GREEN);
-	win.print(posX + xoffset[3], posY + 3, byte_o.str().c_str(), GREEN);
+	win.print(posX + xoffset[0], posY + 0, pckt_i.str().c_str());
+	win.print(posX + xoffset[1], posY + 1, byte_i.str().c_str());
+	win.print(posX + xoffset[2], posY + 2, pckt_o.str().c_str());
+	win.print(posX + xoffset[3], posY + 3, byte_o.str().c_str());
 }
 
 

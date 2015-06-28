@@ -43,7 +43,7 @@ void	Window::open( void ) {
 
 	init_color(COLOR_ORANGE, 1000, 549, 0);
 	init_color(COLOR_VIOLET, 580, 0, 827);
-	init_color(COLOR_GREY, 545, 545, 514);
+	init_color(COLOR_GREY, 302, 302, 302);
 
 	init_pair(1, COLOR_RED, COLOR_BLACK);
 	init_pair(2, COLOR_GREEN, COLOR_BLACK);
@@ -69,10 +69,6 @@ void	Window::open( void ) {
 	init_pair(19, COLOR_GREY, COLOR_BLACK);
 	init_pair(20, COLOR_BLACK, COLOR_GREY);
 
-
-	// init_color(COLOR_RED, 500, 500, 500);
-
-	// wbkgd(window_white, COLOR_PAIR(5));
 
 	noecho();
 	curs_set(FALSE);
