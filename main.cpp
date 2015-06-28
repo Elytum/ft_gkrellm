@@ -6,7 +6,7 @@
 int		main( void )
 {
 	Window			win;
-	FooBar*			tooSmall = new FooBar("");
+	RAMModule*			tooSmall = new RAMModule;
 
 	win.open();
 	win.addModule(tooSmall, 6);
