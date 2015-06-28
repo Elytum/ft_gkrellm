@@ -89,6 +89,16 @@ void		Window::print( int x, int y, char const *c ) const {
 	mvwprintw(main_window, y, x, c);
 }
 
+void		Window::print( int x, int y, char const c ) const {
+	static char tmp[2];
+
+	tmp[0] = c;
+	tmp[1] = '\0';
+	if (x < 0 || y < 0 || x >= width || y >= height)
+		return ;
+	mvwprintw(main_window, y, x, tmp);
+}
+
 void		Window::print( int x, int y, char const *c, char const color ) const {
 	if (x < 0 || y < 0 || x >= width || y >= height)
 		return ;

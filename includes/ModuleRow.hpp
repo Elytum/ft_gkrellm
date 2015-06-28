@@ -18,7 +18,7 @@ public:
 	MonitorModule&						operator[]( int pos );
 	void								draw( int x, int y, Window const & win ) const;
 private:
-	int							width;
+	int								width;
 	std::vector<MonitorModule *>	modules;
 };
 

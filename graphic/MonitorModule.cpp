@@ -5,10 +5,13 @@
 MonitorModule::MonitorModule( void ) : _height(DEFAULT_HEIGHT), _title("")	{
 }
 
+MonitorModule::MonitorModule( int width, int height ) : _width(width), _height(height), _title("")	{
+}
+
 MonitorModule::MonitorModule( std::string title ) : _height(DEFAULT_HEIGHT), _title(title)	{
 }
 
-MonitorModule::MonitorModule( int height, const char *title ) : _height(height), _title(title)	{
+MonitorModule::MonitorModule( int width, int height, std::string title ) : _width(width), _height(height), _title(title)	{
 }
 
 MonitorModule::MonitorModule( MonitorModule const & cpy ) : _title(cpy._title) {
@@ -25,6 +28,15 @@ void	MonitorModule::setHeight( int height ) {
 int		MonitorModule::getHeight( void ) const {
 	return _height;
 }
+
+void				MonitorModule::setWidth( int width ) {
+	_width = width;
+}
+
+int					MonitorModule::getWidth( void ) const {
+	return _width;
+}
+
 
 const std::string MonitorModule::getTitle( void ) const {
 	return _title;

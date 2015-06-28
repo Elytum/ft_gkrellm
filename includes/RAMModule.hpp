@@ -26,6 +26,7 @@ public:
 
 	RAMModule &	operator=( RAMModule const& rhs );
 	
+	// virtual void	draw( int x, int y, int w, Window const& ) const;
 	virtual void	drawContent( int posX, int posY, int width, int height, Window const & win ) const;
 
 };
