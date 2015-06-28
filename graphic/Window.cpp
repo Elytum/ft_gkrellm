@@ -89,6 +89,16 @@ void		Window::print( int x, int y, char const *c ) const {
 	mvwprintw(main_window, y, x, c);
 }
 
+void		Window::print( int x, int y, char const c ) const {
+	static char tmp[2];
+
+	tmp[0] = c;
+	tmp[1] = '\0';
+	if (x < 0 || y < 0 || x >= width || y >= height)
+		return ;
+	mvwprintw(main_window, y, x, tmp);
+}
+
 void		Window::print( int x, int y, char const *c, char const color ) const {
 	if (x < 0 || y < 0 || x >= width || y >= height)
 		return ;
@@ -121,6 +131,24 @@ void		Window::print( int x, int y, char const c, char const color ) const {
 	else if (color == 'W')
 		mvwprintw(window_white, y, x, tmp);
 }
+
+void		Window::printBox(int x, int y, int w, int h) const {
+	mvwaddch(window_white, y, x, ACS_PLUS);
+	mvwaddch(window_white, y, x + w, ACS_PLUS);
+	mvwaddch(window_white, y + h, x, ACS_PLUS);
+	mvwaddch(window_white, y + h, x + w, ACS_PLUS);
+	mvwhline(window_white, y, x + 1, ACS_HLINE, w - 1);
+	mvwhline(window_white, y + h, x + 1, ACS_HLINE, w - 1);
+	mvwvline(window_white, y + 1, x, '|', h - 1);
+	mvwvline(window_white, y + 1, x + w, '|', h - 1);
+}
+
+void		Window::printHLine(int x, int y, int w) const
+{
+	mvwaddch(window_white, y, x, ACS_PLUS);
+	mvwaddch(window_white, y, x + w, ACS_PLUS);
+	mvwhline(window_white, y, x + 1, ACS_HLINE, w - 1);
+};
 
 void	Window::flush( void )	{
 	wrefresh(main_window);

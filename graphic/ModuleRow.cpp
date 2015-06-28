@@ -1,6 +1,6 @@
 #include <ModuleRow.hpp>
 
-ModuleRow::ModuleRow( void ) : width(DEFAULT_WIDTH) {
+ModuleRow::ModuleRow( void ) : width(0) {
 }
 
 ModuleRow::~ModuleRow( void ) {
@@ -8,6 +8,10 @@ ModuleRow::~ModuleRow( void ) {
 
 void								ModuleRow::addModule( MonitorModule * mod ) {
 	modules.push_back(mod);
+	for (unsigned int i = 0; i < modules.size(); ++i) {
+		if (modules[i]->getWidth() > width)
+			width = modules[i]->getWidth();
+	}
 }
 
 const std::vector<MonitorModule *>	ModuleRow::getModules( void ) const {

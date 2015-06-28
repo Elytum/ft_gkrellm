@@ -26,8 +26,11 @@ public:
 	void		close( void );
 	void		clr( void ) const;
 	void		print( int x, int y, char const *c ) const;
+	void		print( int x, int y, char const c ) const;
 	void		print( int x, int y, char const *c, char const color ) const;
 	void		print( int x, int y, char const c, char const color ) const;
+	void		printBox(int x, int y, int w, int h) const;
+	void		printHLine(int x, int y, int w) const;
 	void		flush( void );
 
 	void		addModule( MonitorModule * module, int row );
