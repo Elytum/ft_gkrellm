@@ -11,7 +11,7 @@ class MonitorModule : public IMonitorModule
 {
 public:
 	MonitorModule( void );
-	MonitorModule( const char *title );
+	MonitorModule( std::string title );
 	MonitorModule( MonitorModule const & cpy );
 	virtual	~MonitorModule( void );
 	

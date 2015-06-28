@@ -1,11 +1,12 @@
 #include <MonitorModule.hpp>
 #include <Window.hpp>
 #include <FooBar.hpp>
+#include <RAMModule.hpp>
 
 int		main( void )
 {
 	Window			win;
-	FooBar*			tooSmall = new FooBar("a");
+	RAMModule*		tooSmall = new RAMModule();
 
 	win.open();
 	win.addModule(tooSmall, 6);
