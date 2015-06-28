@@ -89,6 +89,9 @@ public:
 	WINDOW		*main_window;
 	int			height;
 	int			width;
+
+	int			color_tab;
+	char		tab_color[4][3] = {{'R', 'G', 'B'}, {'G', 'B', 'R'}, {'B', 'R', 'G'}, {'Y', 'V', 'C'}};
 	
 };
 

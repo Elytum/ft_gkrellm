@@ -17,7 +17,7 @@
 //add un IMonitorDisplay qui contient tout les print, printbox, et printline
 int		main( void )
 {
-
+	char				c;
 	Window				win;
 	NameModule*			infoName = new NameModule();
 	RAMModule*			tooSmall = new RAMModule();
@@ -37,11 +37,40 @@ int		main( void )
 	win.addModule(infoPony, 2);
 	win.addModule(infoNetwork, 3);
 	win.addModule(infoNyanCat, 3);
+	win.color_tab[0] = 0;
+	win.color_tab[1] = 1;
+	win.color_tab[2] = 2;
+	win.color_tab[3] = 3;
 	while (42) {
 		win.refresh();
 		win.flush();
-		if (wgetch(win.getWindow()) == 'q')
+		c = wgetch(win.getWindow();
+		if (c == 'q')
 			break;
+		if (c == '+')
+		{
+			if (win.color_tab >= 3)
+			{
+				win.color_tab = 1;
+			}
+			else
+			{
+				win.color_tab = win.color_tab + 1;
+			}
+			c = 'Y';
+		}
+		if (c == '-')
+		{
+			if (win.color_tab <= 0)
+			{
+				win.color_tab = 3;
+			}
+			else
+			{
+				win.color_tab = win.color_tab - 1;
+			}
+			c = 'Y';
+		}
 	}
 	win.close();
 	return (0);
