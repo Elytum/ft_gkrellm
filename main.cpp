@@ -8,13 +8,11 @@ int		main( void )
 {
 	Window			win;
 	FooBar*			tooSmall = new FooBar("");
+	OSinfo*			infoOS = new OSinfo();
 
 	win.open();
-	win.addModule(tooSmall, 1);
-	win.addModule(tooSmall, 1);
-	win.addModule(tooSmall, 6);
 	win.addModule(tooSmall, 42);
-	win.addModule(tooSmall, 42);
+	win.addModule(infoOS, 42);
 	while (42) {
 		win.refresh();
 		win.flush();

@@ -6,7 +6,7 @@
 #    By: bwanlin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/09 19:27:02 by bwanlin           #+#    #+#              #
-#    Updated: 2015/06/28 02:21:18 by bwanlin          ###   ########.fr        #
+#    Updated: 2015/06/28 02:23:26 by bwanlin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ INC		=	includes
 
 OBJ		=	$(SRC:.cpp=.o)
 
-EXE		=	ex00
+EXE		=	ft_gkrellm
 
 all		:	$(SRC) $(EXE)
 

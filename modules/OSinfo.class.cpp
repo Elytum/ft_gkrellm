@@ -6,20 +6,18 @@
 /*   By: bwanlin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 22:20:35 by bwanlin           #+#    #+#             */
-/*   Updated: 2015/06/28 02:19:32 by bwanlin          ###   ########.fr       */
+/*   Updated: 2015/06/28 03:13:19 by bwanlin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "OSinfo.class.hpp"
-
-OSinfo::OSinfo( void )
+#include <string>
+OSinfo::OSinfo( void ) : MonitorModule(45, 8, "OSinfo")
 {
-	std::cout << ".Constructor OSinfo called" << std::endl;
 	updateInfo();
-	printInfo();
 }
 
-void	OSinfo::printInfo( void )
+void	OSinfo::printInfo( void ) const
 {
 	std::cout << ".Retrieving Data from OSinfo" << std::endl;
 	std::cout << "hw.model: " << _info.model << std::endl;
@@ -31,7 +29,6 @@ void	OSinfo::printInfo( void )
 
 void OSinfo::updateInfo( void )
 {
-	std::cout << ".UpdateInfo OSinfo called" << std::endl;
 	
 	size_t	model = sizeof(_info.model);
 	size_t	machine = sizeof(_info.machine);
@@ -46,7 +43,29 @@ void OSinfo::updateInfo( void )
 	sysctlbyname("hw.memsize", &_info.memsize, &memsize, NULL, 0);
 }
 
+template< typename T >
+void	printType( int posX, int posY, int width, int height, Window const &win, char const *s, T index)
+{
+	win.print(posX + 1, posY, s);
+	win.print(posX + 1 + strlen(s), posY, index);
+	width = height = 0;
+}
+
+void	OSinfo::drawContent( int posX, int posY, int width, int height, Window const & win ) const
+{
+	printType(posX, posY, width, height, win, "hw.model: ", _info.model);
+	posY++;	
+	printType(posX, posY, width, height, win, "hw.machine: ", _info.machine);
+	posY++;
+	printType(posX, posY, width, height, win, "hw.cputype: ", (std::to_string(_info.cputype)).c_str());
+	posY++;	
+	printType(posX, posY, width, height, win, "hw.cpufamily: ", (std::to_string(_info.cpufamily)).c_str());
+	posY++;
+	printType(posX, posY, width, height, win, "hw.memsize: ", (std::to_string(_info.memsize)).c_str());
+	posY++;
+
+}
+
 OSinfo::~OSinfo( void )
 {
-	std::cout << ".Destructor OSinfo called" << std::endl;
 }
