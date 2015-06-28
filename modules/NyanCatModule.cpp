@@ -1,38 +1,41 @@
 #define WIDTH 27
-#define HEIGHT 10
+#define HEIGHT 11
 
 #define FRAME0 \
 "bbbbbbbbbbbwwbwwbbbbbbbbbbbb" \
-"bbbbbbbbbbbbbwbbbbbbbbbbbbbb" \
+"bbbbbbbbbbbbbwbbbbbbbbbbbbww" \
 "bbbbbbb             bbbbbbbb" \
 "rrrbbb wwwwwwwwwww   bbb   b" \
 "yyyrrr wmmrmmmrmmmw        b" \
 "gggyyy wmmmmmrmmmmw  w  w  b" \
 "cccggg wwwwwwwwwwww m    m b" \
 "bbbccc                    bb" \
-"bbbbbb  bb bbbbbbb  bb  bbbb"
+"bbbbbb  bb bbbbbbb  bb  bbbw" \
+"bbbbbwbbbbbbbbbbbwbbbbbbbbbb"
 
 #define FRAME1 \
-"bbbbbbbbbbbwwbwwbbbbbbbbbbbb" \
 "bbbbbbbbbbbbbwbbbbbbbbbbbbbb" \
+"wbbbbbbbbbbbbbbbbbbbbbbbbbwb" \
 "bbbbbbb              bbb   b" \
 "bbbbbb wwwwwwwwwww         b" \
 "rrrrrr wmmrmmmrmmmw  w  w  b" \
 "yyyyyy wmmmmmrmmmmw m    m b" \
-"gggggg wwwwwwwwwwww        b" \
-"cccccc                    bb" \
-"bbbbbbb  bb bbbbbbb  bb  bbb"
+"gggggg wwwwwwwwwwww       bb" \
+"cccccc                   bbb" \
+"bbbbbbb  bb bbbbbbb  bb  bbb" \
+"bbbbbbbbbbbbbbwbbbbbbbbbbbbb"
 
 #define FRAME2 \
-"bbbbbbbbbbbwwbwwbbbbbbbbbbbb" \
-"bbbbbbbbbbbbbwbbbbbbbbbbbbbb" \
+"bbbbbbbbbbbbbbbbbbbbbbbbbbbb" \
+"bbbbbbbbbbbbbbbbbbbbbbbbbbbb" \
 "bbbbbbb             bbbbbbbb" \
 "bbbbbb wwwwwwwwwww   bbb   b" \
 "bbbrrr wmmrmmmrmmmw        b" \
 "rrryyy wmmmmmrmmmmw  w  w  b" \
 "yyyggg wwwwwwwwwwww m    m b" \
 "gggccc                    bb" \
-"cccbb  bb bbbbbbb  bb  bbbbb"
+"ccwbb  bb bbbbbbb  bb  bbbbb" \
+"bbbbbbbbbbbbbbbbbbbbbbbbbbbb"
 
 #include <math.h>
 

@@ -9,38 +9,31 @@
 #include "PonyModule.hpp"
 #include "NetworkModule.hpp"
 #include "NyanCatModule.hpp"
-
-//TODO
-//remove all c++11 functiosn (to_string)
-//add all monitormodule function to IMonitorModule (sujet)
-// si possible, laisser addmodule utiliser Imonitormodule
-//add un IMonitorDisplay qui contient tout les print, printbox, et printline
+#include "Tools.class.hpp"
 int		main( void )
 {
 	char				c;
 	Window				win;
+	RAMModule*			infoRAM = new RAMModule();
 	NameModule*			infoName = new NameModule();
-	RAMModule*			tooSmall = new RAMModule();
 	OSinfo*				infoOS = new OSinfo();
 	TimeModule*			infoTime = new TimeModule();
 	CPUmod*				infoCPU = new CPUmod();
 	PonyModule*			infoPony = new PonyModule();
-	NetworkModule*		infoNetwork = new NetworkModule();
 	NyanCatModule*		infoNyanCat = new NyanCatModule();
+	Tools*				infoTools = new Tools();
 
 	win.open();
-	win.addModule(tooSmall, 1);
-	win.addModule(infoOS, 2);
+	win.color_tab = 0;
+	
 	win.addModule(infoTime, 1);
-	win.addModule(infoName, 1);
-	win.addModule(infoCPU, 2);
-	win.addModule(infoPony, 2);
-	win.addModule(infoNetwork, 3);
-	win.addModule(infoNyanCat, 3);
-	win.color_tab[0] = 0;
-	win.color_tab[1] = 1;
-	win.color_tab[2] = 2;
-	win.color_tab[3] = 3;
+	win.addModule(infoTools, 1);
+	win.addModule(infoNyanCat, 4);
+	win.addModule(infoPony, 1);
+	win.addModule(infoOS, 2);
+	win.addModule(infoRAM, 3);
+	win.addModule(infoCPU, 3);
+
 	while (42) {
 		win.refresh();
 		win.flush();

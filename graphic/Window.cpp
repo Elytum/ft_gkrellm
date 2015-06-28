@@ -1,6 +1,5 @@
 #include <Window.hpp>
 
-
 Window::Window() : opened(false),
 	window_white(NULL), main_window(NULL) {
 		modules.resize(MAX_WIDTH_MODULES);
@@ -11,14 +10,14 @@ Window::~Window() {
 		delwin(main_window);
 }
 
-int			Window::getSeenWidth() {
+int			Window::getSeenWidth() const {
 	struct winsize w;
 	ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
 
 	return (w.ws_col);
 }
 
-int			Window::getSeenHeight() {
+int			Window::getSeenHeight() const {
 	struct winsize w;
 	ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
 
@@ -43,7 +42,7 @@ void	Window::open( void ) {
 
 	init_color(COLOR_ORANGE, 1000, 549, 0);
 	init_color(COLOR_VIOLET, 580, 0, 827);
-	init_color(COLOR_GREY, 412, 412, 412);
+	init_color(COLOR_GREY, 302, 302, 302);
 
 	init_pair(1, COLOR_RED, COLOR_BLACK);
 	init_pair(2, COLOR_GREEN, COLOR_BLACK);
@@ -69,10 +68,6 @@ void	Window::open( void ) {
 	init_pair(19, COLOR_GREY, COLOR_BLACK);
 	init_pair(20, COLOR_BLACK, COLOR_GREY);
 
-
-	// init_color(COLOR_RED, 500, 500, 500);
-
-	// wbkgd(window_white, COLOR_PAIR(5));
 
 	noecho();
 	curs_set(FALSE);
