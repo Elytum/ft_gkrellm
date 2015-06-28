@@ -26,7 +26,9 @@ SRCS =	main.cpp					\
 		modules/RAMModule.cpp		\
 		modules/FooBar.cpp			\
 		modules/TimeModule.cpp		\
-		modules/NameModule.cpp
+		modules/NameModule.cpp		\
+		modules/PonyModule.cpp		\
+		modules/NyanCatModule.cpp
 
 INC = 	includes
 

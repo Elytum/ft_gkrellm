@@ -6,19 +6,25 @@
 #include "TimeModule.hpp"
 #include "NameModule.hpp"
 #include "CPUmod.class.hpp"
+#include "PonyModule.hpp"
+#include "NyanCatModule.hpp"
 
 int		main( void )
 {
-	Window			win;
-	NameModule*		infoName = new NameModule();
-	RAMModule*		infoRAM = new RAMModule();
-	OSinfo*			infoOS = new OSinfo();
-	TimeModule*		infoTime = new TimeModule();
-	CPUmod*			infoCPU = new CPUmod();
+	Window				win;
+	RAMModule*			infoRAM = new RAMModule();
+	NameModule*			infoName = new NameModule();
+	OSinfo*				infoOS = new OSinfo();
+	TimeModule*			infoTime = new TimeModule();
+	CPUmod*				infoCPU = new CPUmod();
+	PonyModule*			infoPony = new PonyModule();
+	NyanCatModule*		infoNyanCat = new NyanCatModule();
 
 	win.open();
 	win.addModule(infoName, 1);
 	win.addModule(infoTime, 1);
+	win.addModule(infoNyanCat, 4);
+	win.addModule(infoPony, 5);
 	win.addModule(infoOS, 2);
 	win.addModule(infoRAM, 3);
 	win.addModule(infoCPU, 3);
