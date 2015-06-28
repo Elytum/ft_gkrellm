@@ -6,7 +6,7 @@
 /*   By: bwanlin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/28 15:32:26 by bwanlin           #+#    #+#             */
-/*   Updated: 2015/06/28 15:56:34 by bwanlin          ###   ########.fr       */
+/*   Updated: 2015/06/28 16:17:11 by bwanlin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 # include <sys/types.h>
 # include <sys/sysctl.h>
 # include "MonitorModule.hpp"
+#include <sys/types.h>
+#include <sys/sysctl.h>
+
+#include <mach/vm_statistics.h>
+#include <mach/mach_types.h>
+#include <mach/mach_init.h>
+#include <mach/mach_host.h>
+
 
 
 class Tools : public MonitorModule

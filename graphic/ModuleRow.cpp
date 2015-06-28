@@ -4,6 +4,9 @@ ModuleRow::ModuleRow( void ) : width(0) {
 }
 
 ModuleRow::~ModuleRow( void ) {
+	for (unsigned int i = 0; i < modules.size(); ++i) {
+		delete modules[i];
+	}
 }
 
 void								ModuleRow::addModule( MonitorModule * mod ) {

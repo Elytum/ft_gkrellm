@@ -12,6 +12,10 @@
 # include <MonitorModule.hpp>
 # include <Config.hpp>
 
+# define COLOR_ORANGE 101
+# define COLOR_VIOLET 102
+# define COLOR_GREY   103
+
 class ModuleRow;
 
 enum colorsKind {
@@ -30,6 +34,15 @@ enum colorsKind {
 	REVERSE_WHITE = 12,
 	REVERSE_MAGENTA = 13,
 	REVERSE_CYAN = 14,
+
+	ORANGE = 15,
+	REVERSE_ORANGE = 16,
+
+	VIOLET = 17,
+	REVERSE_VIOLET = 18,
+
+	GREY = 19,
+	REVERSE_GREY = 20, 
 };
 
 class Window

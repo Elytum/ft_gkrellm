@@ -7,10 +7,12 @@
 #include "NameModule.hpp"
 #include "CPUmod.class.hpp"
 #include "PonyModule.hpp"
+#include "NetworkModule.hpp"
 #include "NyanCatModule.hpp"
 #include "Tools.class.hpp"
 int		main( void )
 {
+
 	Window				win;
 	RAMModule*			infoRAM = new RAMModule();
 	NameModule*			infoName = new NameModule();

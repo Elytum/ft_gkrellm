@@ -41,6 +41,10 @@ void	Window::open( void ) {
 
 	start_color();
 
+	init_color(COLOR_ORANGE, 1000, 549, 0);
+	init_color(COLOR_VIOLET, 580, 0, 827);
+	init_color(COLOR_GREY, 545, 545, 514);
+
 	init_pair(1, COLOR_RED, COLOR_BLACK);
 	init_pair(2, COLOR_GREEN, COLOR_BLACK);
 	init_pair(3, COLOR_BLUE, COLOR_BLACK);
@@ -55,6 +59,15 @@ void	Window::open( void ) {
 	init_pair(12, COLOR_BLACK, COLOR_WHITE);
 	init_pair(13, COLOR_BLACK, COLOR_MAGENTA);
 	init_pair(14, COLOR_BLACK, COLOR_CYAN);
+
+	init_pair(15, COLOR_ORANGE, COLOR_BLACK);
+	init_pair(16, COLOR_BLACK, COLOR_ORANGE);
+
+	init_pair(17, COLOR_VIOLET, COLOR_BLACK);
+	init_pair(18, COLOR_BLACK, COLOR_VIOLET);
+
+	init_pair(19, COLOR_GREY, COLOR_BLACK);
+	init_pair(20, COLOR_BLACK, COLOR_GREY);
 
 
 	// init_color(COLOR_RED, 500, 500, 500);
@@ -130,6 +143,18 @@ static colorsKind	getColor(char color) {
 		return (REVERSE_MAGENTA);
 	else if (color == 'c')
 		return (REVERSE_CYAN);
+	else if (color == 'O')
+		return (ORANGE);
+	else if (color == 'o')
+		return (REVERSE_ORANGE);
+	else if (color == 'V')
+		return (VIOLET);
+	else if (color == 'v')
+		return (REVERSE_VIOLET);
+	else if (color == 'E')
+		return (GREY);
+	else if (color == 'e')
+		return (REVERSE_GREY);
 	return (BLACK);
 }
 

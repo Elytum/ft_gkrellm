@@ -6,13 +6,13 @@
 /*   By: bwanlin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/28 15:31:37 by bwanlin           #+#    #+#             */
-/*   Updated: 2015/06/28 15:59:33 by bwanlin          ###   ########.fr       */
+/*   Updated: 2015/06/28 16:20:19 by bwanlin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Tools.class.hpp"
 #include <string>
-Tools::Tools( void ) : MonitorModule(45, 7, "OS informations")
+Tools::Tools( void ) : MonitorModule(45, 4, "Useful informations")
 {
 	updateInfo();
 }
