@@ -1,6 +1,5 @@
 #include <Window.hpp>
 
-
 Window::Window() : opened(false),
 	window_white(NULL), main_window(NULL) {
 		modules.resize(MAX_WIDTH_MODULES);
@@ -11,14 +10,14 @@ Window::~Window() {
 		delwin(main_window);
 }
 
-int			Window::getSeenWidth() {
+int			Window::getSeenWidth() const {
 	struct winsize w;
 	ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
 
 	return (w.ws_col);
 }
 
-int			Window::getSeenHeight() {
+int			Window::getSeenHeight() const {
 	struct winsize w;
 	ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
 

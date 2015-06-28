@@ -13,57 +13,52 @@
 #include "NetworkModule.hpp"
 int		main( void )
 {
-
+	char				c;
 	Window				win;
-	RAMModule*			infoRAM = new RAMModule();
-	NameModule*			infoName = new NameModule();
-	OSinfo*				infoOS = new OSinfo();
-	TimeModule*			infoTime = new TimeModule();
-	CPUmod*				infoCPU = new CPUmod();
-	PonyModule*			infoPony = new PonyModule();
-	NyanCatModule*		infoNyanCat = new NyanCatModule();
-	Tools*				infoTools = new Tools();
-	NetworkModule*		infoNetwork = new NetworkModule();
 
 	win.open();
-	win.addModule(infoName, 1);
-	win.addModule(infoTime, 1);
-	win.addModule(infoTools, 1);
-	win.addModule(infoNyanCat, 4);
-	win.addModule(infoPony, 1);
-	win.addModule(infoOS, 2);
-	win.addModule(infoRAM, 3);
-	win.addModule(infoCPU, 3);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
-	win.addModule(infoNetwork, 1);
+
+	win.color_tab = 0;
+
+	win.addModule(new NameModule(), 1);
+	win.addModule(new TimeModule(), 1);
+	win.addModule(new Tools(), 1);
+	win.addModule(new NyanCatModule(), 4);
+	win.addModule(new PonyModule(), 1);
+	win.addModule(new OSinfo(), 2);
+	win.addModule(new RAMModule(), 3);
+	win.addModule(new CPUmod(), 3);
+	win.addModule(new NetworkModule(), 3);
 	while (42) {
 		win.refresh();
 		win.flush();
-		if (wgetch(win.getWindow()) == 'q')
+		c = wgetch(win.getWindow();
+		if (c == 'q')
 			break;
+		if (c == '+')
+		{
+			if (win.color_tab >= 3)
+			{
+				win.color_tab = 1;
+			}
+			else
+			{
+				win.color_tab = win.color_tab + 1;
+			}
+			c = 'Y';
+		}
+		if (c == '-')
+		{
+			if (win.color_tab <= 0)
+			{
+				win.color_tab = 3;
+			}
+			else
+			{
+				win.color_tab = win.color_tab - 1;
+			}
+			c = 'Y';
+		}
 	}
 	win.close();
 	return (0);
