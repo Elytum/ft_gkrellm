@@ -15,6 +15,7 @@
 # include <sys/types.h>
 # include <sys/sysctl.h>
 # include <vector>
+# include <sstream>
 # include "MonitorModule.hpp"
 # include "Window.hpp"
 struct CPUcontainer
@@ -27,6 +28,7 @@ class CPUmod : public MonitorModule
 
 	public:
 		CPUmod(void);
+		CPUmod( std::string );
 		virtual ~CPUmod(void);
 
 		void	printInfo( void );

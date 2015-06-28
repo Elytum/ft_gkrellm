@@ -33,10 +33,10 @@ int		main( void )
 	win.addModule(infoOS, 2);
 	win.addModule(infoTime, 1);
 	win.addModule(infoName, 1);
-	win.addModule(infoCPU, 2);
+	win.addModule(infoCPU, 3);
 	win.addModule(infoPony, 2);
-	win.addModule(infoNetwork, 3);
-	win.addModule(infoNyanCat, 3);
+	win.addModule(infoNetwork, 2);
+	win.addModule(infoNyanCat, 2);
 	while (42) {
 		win.refresh();
 		win.flush();

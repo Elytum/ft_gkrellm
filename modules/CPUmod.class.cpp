@@ -9,15 +9,21 @@
 /*   Updated: 2015/06/28 09:10:44 by bwanlin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "CPUmod.class.hpp"
+#include "../includes/CPUmod.class.hpp"
 #include <stdio.h>
 #include <string>
 #include <vector>
-#include "MonitorModule.hpp"
+#include "../includes/MonitorModule.hpp"
 
 #include <iostream>
 
-CPUmod::CPUmod( void ) : MonitorModule(45, 10, "CPUmod")
+CPUmod::CPUmod( void ) : MonitorModule(19, 6, "CPUmod")
+{
+	//procInfo();
+	updateInfo();
+	//printInfo();
+}
+CPUmod::CPUmod( std::string str ) : MonitorModule(19, 6, str)
 {
 	//procInfo();
 	updateInfo();
@@ -49,12 +55,10 @@ void	CPUmod::procInfo( void )
 	pclose(in);
 */
 }
-template< typename T >
-void	printType( int posX, int posY, int width, int height, Window const &win, char const *s, T index)
+
+void	printType( int posX, int posY, int width, Window const &win, std::string str)
 {
-	win.print(posX + 1, posY, s);
-	win.print(posX + 1 + strlen(s), posY, index);
-	width = height = 0;
+	win.print(posX + (width - str.size()) / 2 , posY, str.c_str());
 }
 
 void 	CPUmod::updateInfo( void )
@@ -66,7 +70,26 @@ void 	CPUmod::updateInfo( void )
 
 void	CPUmod::drawContent( int posX, int posY, int width, int height, Window const & win )
 {
-	printType(posX, posY, width, height, win, "", _info.brand);
+	std::stringstream str;
+
+	str << _info.brand;
+	std::string brand;
+	std::string core;
+	std::string name;
+	std::string cpu;
+	std::string speed;
+
+	str >> brand;
+	str >> core;
+	str >> name;
+	str >> cpu;
+	str >> speed;
+	str >> speed;
+	(void)height;
+	int offset = (height - 4) / 2;
+	printType(posX, posY + 0 + offset, width, win, brand + core);
+	printType(posX, posY + 1 + offset, width, win, name + cpu);
+	printType(posX, posY + 2 + offset, width, win, speed);
 }
 
 CPUmod::~CPUmod( void )
