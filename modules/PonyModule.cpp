@@ -6,7 +6,7 @@
 //   By: hmoutaou <marvin@42.fr>                    +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/06/28 10:04:59 by hmoutaou          #+#    #+#             //
-//   Updated: 2015/06/28 10:05:00 by hmoutaou         ###   ########.fr       //
+/*   Updated: 2015/06/28 15:04:13 by bwanlin          ###   ########.fr       */
 //                                                                            //
 // ************************************************************************** //
 
@@ -14,7 +14,7 @@
 
 #define REQUIRED_WIDTH 37
 #define REQUIRED_HEIGHT 9
-#define TICK_RATE 500
+#define TICK_RATE 100
 
 PonyModule::PonyModule( void ): MonitorModule(REQUIRED_WIDTH, REQUIRED_HEIGHT, "Run pony !! Run !!") {
 
