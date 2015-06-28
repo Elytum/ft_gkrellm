@@ -26,9 +26,9 @@ public:
 	// virtual void	draw( int x, int y, int w, Window const& ) const;
 	virtual void	drawContent( int posX, int posY, int width, int height, Window const & win );
 private:
-	static void		_update( void );
-	static time_t	_time;
-	static string	_result;
+	static time_t					_time;
+	static std::string				_result;
+	static void						_update( void );
 
 };
 

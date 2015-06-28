@@ -45,25 +45,12 @@ public:
 	virtual void		print( int x, int y, char const c ) const = 0;
 	virtual void		print( int x, int y, char const *c, char const color ) const = 0;
 	virtual void		print( int x, int y, char const c, char const color ) const = 0;
-
-	virtual void		printTitle( int x, int y, char const *c ) const = 0;
-	virtual void		printTitle( int x, int y, char const c ) const = 0;
-
-	virtual void		printBorder( int x, int y, char const *c ) const = 0;
-	virtual void		printBorder( int x, int y, char const c ) const = 0;
-
-	virtual void		printCorps( int x, int y, char const *c ) const = 0;
-	virtual void		printCorps( int x, int y, char const c ) const = 0;
-
 	virtual void		doPrint( int x, int y, char const *c, colorsKind color ) const = 0;
 	virtual void		printBox(int x, int y, int w, int h) const = 0;
 	virtual void		printHLine(int x, int y, int w) const = 0;
 	virtual void		flush( void ) = 0;
 	virtual void		addModule( MonitorModule * module, int row ) = 0;
 	virtual void		refresh( void ) = 0;
-
-	virtual void		setColorTab(int	i) = 0;
-	virtual int			getColorTab( void ) = 0;
 };
 
 #endif
