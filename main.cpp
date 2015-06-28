@@ -6,6 +6,7 @@
 #include "TimeModule.hpp"
 #include "NameModule.hpp"
 #include "CPUmod.class.hpp"
+#include "PonyModule.hpp"
 
 //TODO
 //remove all c++11 functiosn (to_string)
@@ -20,6 +21,7 @@ int		main( void )
 	OSinfo*			infoOS = new OSinfo();
 	TimeModule*		infoTime = new TimeModule();
 	CPUmod*			infoCPU = new CPUmod();
+	PonyModule*		infoPony = new PonyModule();
 
 	win.open();
 	win.addModule(tooSmall, 1);
@@ -27,6 +29,7 @@ int		main( void )
 	win.addModule(infoTime, 1);
 	win.addModule(infoName, 1);
 	win.addModule(infoCPU, 2);
+	win.addModule(infoPony, 2);
 	while (42) {
 		win.refresh();
 		win.flush();
