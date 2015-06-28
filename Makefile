@@ -12,7 +12,7 @@
 
 # -------------Compilateur------------------#
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 #--------------Name-------------------------#
 NAME = ft_gkrellm
 

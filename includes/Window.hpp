@@ -13,9 +13,13 @@
 # include <IMonitorDisplay.hpp>
 # include <Config.hpp>
 
-# define COLOR_ORANGE 101
-# define COLOR_VIOLET 102
-# define COLOR_GREY   103
+# define COLOR_ORANGE  101
+# define COLOR_VIOLET  102
+# define COLOR_GREY    103
+
+# define  TITLE_COLOR   0
+# define BORDER_COLOR   1
+# define  CORPS_COLOR   2
 
 class Window : public IMonitorDisplay
 {
@@ -32,6 +36,16 @@ public:
 	virtual void		print( int x, int y, char const c ) const;
 	virtual void		print( int x, int y, char const *c, char const color ) const;
 	virtual void		print( int x, int y, char const c, char const color ) const;
+
+	virtual void		printTitle( int x, int y, char const *c ) const;
+	virtual void		printTitle( int x, int y, char const c ) const;
+
+	virtual void		printBorder( int x, int y, char const *c ) const;
+	virtual void		printBorder( int x, int y, char const c ) const;
+
+	virtual void		printCorps( int x, int y, char const *c ) const;
+	virtual void		printCorps( int x, int y, char const c ) const;
+
 	virtual void		doPrint( int x, int y, char const *c, colorsKind color ) const;
 	virtual void		printBox(int x, int y, int w, int h) const;
 	virtual void		printHLine(int x, int y, int w) const;
@@ -39,6 +53,9 @@ public:
 	virtual void		addModule( MonitorModule * module, int row );
 	virtual void		refresh( void );
 	WINDOW*				getWindow( void ) const;
+
+	virtual void		setColorTab(int	i);
+	virtual int			getColorTab( void );
 
 private:
 	bool						opened;
@@ -49,8 +66,8 @@ private:
 	int			height;
 	int			width;
 
-	int			color_tab;
-	char		tab_color[4][3] = {{'R', 'G', 'B'}, {'G', 'B', 'R'}, {'B', 'R', 'G'}, {'Y', 'V', 'C'}};
+	int			_color_tab;
+	static char		_tab_color[4][3];
 	
 };
 

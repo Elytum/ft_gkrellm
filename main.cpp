@@ -16,8 +16,9 @@ int		main( void )
 	char				c;
 	Window				win;
 	win.open();
+	int					color_tab;
 
-	win.color_tab = 0;
+	win.setColorTab(0);
 
 	win.addModule(new NameModule(), 1);
 	win.addModule(new TimeModule(), 1);
@@ -31,30 +32,32 @@ int		main( void )
 	while (42) {
 		win.refresh();
 		win.flush();
-		c = wgetch(win.getWindow();
+		c = wgetch(win.getWindow());
 		if (c == 'q')
 			break;
 		if (c == '+')
 		{
-			if (win.color_tab >= 3)
+			color_tab = win.getColorTab();
+			if (color_tab >= 3)
 			{
-				win.color_tab = 1;
+				win.setColorTab(1);
 			}
 			else
 			{
-				win.color_tab = win.color_tab + 1;
+				win.setColorTab(color_tab + 1);
 			}
 			c = 'Y';
 		}
 		if (c == '-')
 		{
-			if (win.color_tab <= 0)
+			color_tab = win.getColorTab();
+			if (color_tab <= 0)
 			{
-				win.color_tab = 3;
+				win.setColorTab(3);
 			}
 			else
 			{
-				win.color_tab = win.color_tab - 1;
+				win.setColorTab(color_tab - 1);
 			}
 			c = 'Y';
 		}

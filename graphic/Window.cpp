@@ -1,5 +1,7 @@
 #include <Window.hpp>
 
+char		Window::_tab_color[4][3] = {{'R', 'G', 'B'}, {'G', 'B', 'R'}, {'B', 'R', 'G'}, {'Y', 'V', 'C'}};
+
 Window::Window() : opened(false),
 	window_white(NULL), main_window(NULL) {
 		modules.resize(MAX_WIDTH_MODULES);
@@ -167,6 +169,58 @@ void		Window::print( int x, int y, char const c, char const color ) const {
 	tmp[0] = c;
 	tmp[1] = '\0';
 	doPrint(x, y, tmp, getColor(color));
+}
+
+
+void		Window::setColorTab(int	i){this->_color_tab = i;}
+int			Window::getColorTab( void ){return (this->_color_tab);}
+
+void		Window::printTitle( int x, int y, char const *c ) const {
+	if (x < 0 || y < 0 || x >= width || y >= height)
+		return ;
+	doPrint(x, y, c, getColor(_tab_color[_color_tab][TITLE_COLOR]));
+}
+
+void		Window::printTitle( int x, int y, char const c ) const {
+	static char tmp[2] = {'\0'};
+
+	if (x < 0 || y < 0 || x >= width || y >= height)
+		return ;
+	tmp[0] = c;
+	tmp[1] = '\0';
+	doPrint(x, y, tmp, getColor(_tab_color[_color_tab][TITLE_COLOR]));
+}
+
+void		Window::printBorder( int x, int y, char const *c ) const {
+	if (x < 0 || y < 0 || x >= width || y >= height)
+		return ;
+	doPrint(x, y, c, getColor(_tab_color[_color_tab][BORDER_COLOR]));
+}
+
+void		Window::printBorder( int x, int y, char const c ) const {
+	static char tmp[2] = {'\0'};
+
+	if (x < 0 || y < 0 || x >= width || y >= height)
+		return ;
+	tmp[0] = c;
+	tmp[1] = '\0';
+	doPrint(x, y, tmp, getColor(_tab_color[_color_tab][BORDER_COLOR]));
+}
+
+void		Window::printCorps( int x, int y, char const *c ) const {
+	if (x < 0 || y < 0 || x >= width || y >= height)
+		return ;
+	doPrint(x, y, c, getColor(_tab_color[_color_tab][CORPS_COLOR]));
+}
+
+void		Window::printCorps( int x, int y, char const c ) const {
+	static char tmp[2] = {'\0'};
+
+	if (x < 0 || y < 0 || x >= width || y >= height)
+		return ;
+	tmp[0] = c;
+	tmp[1] = '\0';
+	doPrint(x, y, tmp, getColor(_tab_color[_color_tab][CORPS_COLOR]));
 }
 
 void		Window::printBox(int x, int y, int w, int h) const {
