@@ -47,22 +47,22 @@ MonitorModule&		MonitorModule::operator=(MonitorModule const & cpy) {
 	return *this;
 }
 
-void		MonitorModule::draw( int posX, int posY, int width, Window const & win ) const {
+void		MonitorModule::draw( int posX, int posY, int width, Window const & win ) {
 	const int	bufSize = 1024;
 	static char	tmp[bufSize];
 
-	for (int x = 0; x <= width; ++x) {
-		win.print(posX + x, posY, "_");
-		win.print(posX + x, posY + _height, "_");
-	}
-	for (int y = 1; y <= _height; ++y) {
-		win.print(posX, posY + y, "|");
-		win.print(posX + width, posY + y, "|");
-	}
+	// for (int x = 0; x <= width; ++x) {
+	// 	win.print(posX + x, posY, "_");
+	// 	win.print(posX + x, posY + _height, "_");
+	// }
+	// for (int y = 1; y <= _height; ++y) {
+	// 	win.print(posX, posY + y, "|");
+	// 	win.print(posX + width, posY + y, "|");
+	// }
+	win.printBox(posX, posY, width, _height);
 
 	if (_title.size()) {
-		for (int x = 1; x < width; ++x)
-			win.print(posX + x, posY + 2, "-");
+		win.printHLine(posX, posY + 2, width);
 		int diff = width - 2 - _title.size();
 		if (diff > 0) {
 			win.print(posX + 1 + diff / 2, posY + 1, _title.c_str());

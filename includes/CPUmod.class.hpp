@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   OSinfo.class.hpp                                   :+:      :+:    :+:   */
+/*   CPUmod.class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwanlin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/27 22:21:20 by bwanlin           #+#    #+#             */
-/*   Updated: 2015/06/28 01:03:33 by bwanlin          ###   ########.fr       */
+/*   Created: 2015/06/28 01:34:10 by bwanlin           #+#    #+#             */
+/*   Updated: 2015/06/28 09:02:31 by bwanlin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef OSINFO_HPP
-# define OSINFO_HPP
+#ifndef CPUMOD_HPP
+# define CPUMOD_HPP
 # include <iostream>
-# include <list>
 # include <sys/types.h>
 # include <sys/sysctl.h>
-
-struct OScontainer
+# include <vector>
+# include "MonitorModule.hpp"
+# include "Window.hpp"
+struct CPUcontainer
 {
-	char		model[256];
-	char		machine[256];
-	int32_t		cputype;
-	int32_t		cpufamily;
-	int64_t		memsize;
+	char	brand[256];
 };
 
-class OSinfo {
+class CPUmod : public MonitorModule
+{
 
 	public:
-		OSinfo(void);
-		~OSinfo(void);
+		CPUmod(void);
+		virtual ~CPUmod(void);
 
 		void	printInfo( void );
 		void	updateInfo( void );
+		void	procInfo( void );
+
+		virtual void	drawContent( int posX, int posY, int width, int height, Window const & win );
+
 	private:
-		OScontainer _info;
+		CPUcontainer	_info;
 };
 
 #endif /* OSINFO_HPP */

@@ -30,7 +30,7 @@ MonitorModule&						ModuleRow::operator[](int pos)	{
 	return *modules[pos];
 };
 
-void								ModuleRow::draw( int x, int y, Window const & win ) const {
+void								ModuleRow::draw( int x, int y, Window const & win ) {
 	int s = modules.size();
 	int i = 0;
 

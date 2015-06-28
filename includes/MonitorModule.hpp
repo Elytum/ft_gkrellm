@@ -22,8 +22,8 @@ public:
 	virtual void				setWidth( int width );
 	virtual int					getWidth( void ) const;
 	virtual const std::string	getTitle( void ) const;
-	virtual void				draw( int posX, int posY, int width, Window const & win ) const;
-	virtual void				drawContent( int posX, int posY, int width, int height, Window const & win ) const = 0;
+	virtual void				draw( int posX, int posY, int width, Window const & win );
+	virtual void				drawContent( int posX, int posY, int width, int height, Window const & win ) = 0;
 
 	MonitorModule&		operator=( MonitorModule const & cpy );
 private:

@@ -3,7 +3,7 @@
 
 # include <string>
 # include <iostream>
-# include <../graphic/MonitorModule.hpp>
+# include "MonitorModule.hpp"
 
 typedef std::string string;
 typedef unsigned int uint;
@@ -16,18 +16,24 @@ typedef unsigned int uint;
 #include <mach/mach_init.h>
 #include <mach/mach_host.h>
 
+#include <sys/param.h>
+#include <sys/mount.h>
+
 
 class	RAMModule:public MonitorModule
 {
 public:
 	RAMModule( void );
+	RAMModule( string name );
 	RAMModule( RAMModule const& rhs );
 	~RAMModule( void );
 
 	RAMModule &	operator=( RAMModule const& rhs );
+	string			offsetStr(string str) const;
 	
 	// virtual void	draw( int x, int y, int w, Window const& ) const;
-	virtual void	drawContent( int posX, int posY, int width, int height, Window const & win ) const;
+	virtual void	drawContent( int posX, int posY, int width, int height, Window const & win );
+private:
 
 };
 
