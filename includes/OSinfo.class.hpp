@@ -35,7 +35,7 @@ class OSinfo : public MonitorModule
 
 		void	printInfo( void ) const;
 		void	updateInfo( void );
-		virtual void 	drawContent( int posX, int posY, int width, int height, Window const & win ) const;
+		virtual void 	drawContent( int posX, int posY, int width, int height, Window const & win );
 	
 	private:
 		OScontainer _info;

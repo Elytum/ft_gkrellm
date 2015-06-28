@@ -158,7 +158,7 @@ void		Window::addModule( MonitorModule * module, int row ) {
 	modules[row].addModule(module);
 }
 
-void		Window::refresh( void ) const {
+void		Window::refresh( void ) {
 	int	i = modules.size();
 	int p = 0;
 	int posX = 0;

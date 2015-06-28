@@ -94,16 +94,23 @@ void		RAMModule::drawContent( int posX, int posY, int width, int height, Window 
 	newWidth[1] = 11 + freemem.size();
 	newWidth[2] = 11 + usedmem.size();
 	int maxWidth = *std::max_element(newWidth, newWidth + 3);
-	if (maxWidth > getWidth())
+	if (maxWidth < getWidth())
 		setWidth(maxWidth);
 
+	maxmem = "TOTAL MEM: " + maxmem;
+	freemem = "FREE MEM:  " + freemem;
+	usedmem = "USED MEM:  " + usedmem;
+	
+	int xoffset[3];
+	xoffset[0] = (width - maxmem.size()) / 2;
+	xoffset[1] = (width - freemem.size()) / 2;
+	xoffset[2] = (width - usedmem.size()) / 2;
 
-
-	win.print(posX, posY + 0, offsetStr("TOTAL MEM: " + maxmem).c_str());
+	win.print(posX + xoffset[0], posY + 0, maxmem.c_str());
 	//win.print(posX, posY + 1, offsetStr(maxmem).c_str());
-	win.print(posX, posY + 1, offsetStr("FREE MEM:  " + freemem).c_str());
+	win.print(posX + xoffset[1], posY + 1, freemem.c_str());
 	//win.print(posX, posY + 3, offsetStr(freemem).c_str());
-	win.print(posX, posY + 2, offsetStr("USED MEM:  " + usedmem).c_str());
+	win.print(posX + xoffset[2], posY + 2, usedmem.c_str());
 	//win.print(posX, posY + 5, offsetStr(usedmem).c_str());
 	// win.print(posX, posY + 6, "maxswap");
 	// win.print(posX, posY + 7, maxswap.c_str());

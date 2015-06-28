@@ -31,7 +31,7 @@ TimeModule &	TimeModule::operator=( TimeModule const& )
 	return (*this);
 }
 
-void		TimeModule::drawContent( int posX, int posY, int width, int height, Window const & win ) const
+void		TimeModule::drawContent( int posX, int posY, int width, int height, Window const & win )
 {
 	 if (width < REQUIRED_WIDTH - 3 || height < REQUIRED_HEIGHT - 3)
 	 {

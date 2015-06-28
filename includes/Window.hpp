@@ -34,7 +34,7 @@ public:
 	void		flush( void );
 
 	void		addModule( MonitorModule * module, int row );
-	void		refresh( void ) const;
+	void		refresh( void );
 	WINDOW*		getWindow( void ) const;
 
 	bool						opened;

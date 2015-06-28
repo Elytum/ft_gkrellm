@@ -51,7 +51,7 @@ void	printType( int posX, int posY, int width, int height, Window const &win, ch
 	width = height = 0;
 }
 
-void	OSinfo::drawContent( int posX, int posY, int width, int height, Window const & win ) const
+void	OSinfo::drawContent( int posX, int posY, int width, int height, Window const & win )
 {
 	printType(posX, posY, width, height, win, "hw.model: ", _info.model);
 	posY++;	
