@@ -6,7 +6,7 @@
 #    By: achazal <achazal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/09 19:27:02 by bwanlin           #+#    #+#              #
-#    Updated: 2015/06/28 03:21:24 by bwanlin          ###   ########.fr        #
+#    Updated: 2015/06/28 07:42:53 by bwanlin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS =	main.cpp					\
 		graphic/MonitorModule.cpp	\
 		graphic/Window.cpp			\
 		modules/OSinfo.class.cpp	\
+		modules/CPUmod.class.cpp	\
 		modules/RAMModule.cpp		\
 		modules/FooBar.cpp			\
 		modules/TimeModule.cpp		\

@@ -5,7 +5,7 @@
 #include "RAMModule.hpp"
 #include "TimeModule.hpp"
 #include "NameModule.hpp"
-
+#include "CPUmod.class.hpp"
 
 //TODO
 //remove all c++11 functiosn (to_string)
@@ -19,12 +19,14 @@ int		main( void )
 	RAMModule*		tooSmall = new RAMModule();
 	OSinfo*			infoOS = new OSinfo();
 	TimeModule*		infoTime = new TimeModule();
+	CPUmod*			infoCPU = new CPUmod();
 
 	win.open();
 	win.addModule(tooSmall, 1);
-	win.addModule(infoOS, 1);
+	win.addModule(infoOS, 2);
 	win.addModule(infoTime, 1);
 	win.addModule(infoName, 1);
+	win.addModule(infoCPU, 2);
 	while (42) {
 		win.refresh();
 		win.flush();
