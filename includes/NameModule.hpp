@@ -29,6 +29,8 @@ typedef unsigned int uint;
 #include <mach/mach_init.h>
 #include <mach/mach_host.h>
 
+     #include <unistd.h>
+
 
 class	NameModule:public MonitorModule
 {
@@ -39,7 +41,7 @@ public:
 	~NameModule( void );
 
 	NameModule &	operator=( NameModule const& rhs );
-	virtual void		drawContent( int x, int y, int w, int h, Window const& );
+	virtual void		drawContent( int x, int y, int w, int h, IMonitorDisplay const& );
 };
 
 #endif

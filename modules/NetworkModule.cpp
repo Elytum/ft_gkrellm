@@ -55,7 +55,7 @@ void					NetworkModule::_update( void )
 	}
 }
 	
-void					NetworkModule::drawContent( int posX, int posY, int width, int height, Window const & win )
+void					NetworkModule::drawContent( int posX, int posY, int width, int height, IMonitorDisplay const & win )
 {
 
 	_update();

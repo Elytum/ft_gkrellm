@@ -11,7 +11,7 @@ public:
 	NyanCatModule( NyanCatModule const & cpy );
 	virtual	~NyanCatModule( void );
 	
-	virtual void	drawContent( int posX, int posY, int width, int height, Window const & win );
+	virtual void	drawContent( int posX, int posY, int width, int height, IMonitorDisplay const & win );
 
 };
 

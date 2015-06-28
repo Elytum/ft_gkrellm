@@ -63,7 +63,7 @@ void	parseConfig( Window & win ) {
 
 int		main( void )
 {
-
+	srand(clock());
 	Window				win;
 	win.open();
 	parseConfig(win);

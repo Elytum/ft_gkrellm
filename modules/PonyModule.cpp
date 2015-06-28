@@ -32,7 +32,7 @@ PonyModule &	PonyModule::operator=( PonyModule const& )
 	return (*this);
 }
 
-void		PonyModule::drawContent( int posX, int posY, int width, int height, Window const & win )
+void		PonyModule::drawContent( int posX, int posY, int width, int height, IMonitorDisplay const & win )
 {
 	(void)width;
 	(void)height;

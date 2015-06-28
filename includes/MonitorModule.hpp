@@ -5,7 +5,7 @@
 #include <Config.hpp>
 #include <iostream>
 
-class Window;
+class IMonitorDisplay;
 
 class MonitorModule : public IMonitorModule
 {
@@ -22,8 +22,8 @@ public:
 	virtual void				setWidth( int width );
 	virtual int					getWidth( void ) const;
 	virtual const std::string	getTitle( void ) const;
-	virtual void				draw( int posX, int posY, int width, Window const & win );
-	virtual void				drawContent( int posX, int posY, int width, int height, Window const & win ) = 0;
+	virtual void				draw( int posX, int posY, int width, IMonitorDisplay const & win );
+	virtual void				drawContent( int posX, int posY, int width, int height, IMonitorDisplay const & win ) = 0;
 
 	MonitorModule&		operator=( MonitorModule const & cpy );
 private:
@@ -32,6 +32,11 @@ private:
 	const std::string	_title;
 };
 
-#include <Window.hpp>
+#include <sstream>
+
+#define SSTR( x ) dynamic_cast< std::ostringstream & >( \
+        ( std::ostringstream() << std::dec << x ) ).str()
+
+#include <IMonitorDisplay.hpp>
 
 #endif

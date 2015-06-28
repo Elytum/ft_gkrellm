@@ -10,7 +10,7 @@
 //                                                                            //
 // ************************************************************************** //
 
-#include "NameModule.hpp"
+#include "../includes/NameModule.hpp"
 
 #define REQUIRED_WIDTH 28
 #define REQUIRED_HEIGHT 5
@@ -31,7 +31,7 @@ NameModule &	NameModule::operator=( NameModule const& )
 	return (*this);
 }
 
-void		NameModule::drawContent( int posX, int posY, int width, int height, Window const & win )
+void		NameModule::drawContent( int posX, int posY, int width, int height, IMonitorDisplay const & win )
 {
 	std::string		hostname;
 	std::string		username;

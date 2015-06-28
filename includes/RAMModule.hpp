@@ -31,8 +31,8 @@ public:
 	RAMModule &	operator=( RAMModule const& rhs );
 	string			offsetStr(string str) const;
 	
-	// virtual void	draw( int x, int y, int w, Window const& ) const;
-	virtual void	drawContent( int posX, int posY, int width, int height, Window const & win );
+	// virtual void	draw( int x, int y, int w, IMonitorDisplay const& ) const;
+	virtual void	drawContent( int posX, int posY, int width, int height, IMonitorDisplay const & win );
 private:
 
 };

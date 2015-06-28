@@ -41,14 +41,14 @@ void OSinfo::updateInfo( void )
 }
 
 template< typename T >
-void	printType( int posX, int posY, int width, int height, Window const &win, char const *s, T index)
+void	printType( int posX, int posY, int width, int height, IMonitorDisplay const &win, char const *s, T index)
 {
 	win.print(posX + 1, posY, s);
 	win.print(posX + 1 + strlen(s), posY, index);
 	width = height = 0;
 }
 
-void	OSinfo::drawContent( int posX, int posY, int width, int height, Window const & win )
+void	OSinfo::drawContent( int posX, int posY, int width, int height, IMonitorDisplay const & win )
 {
 	printType(posX, posY, width, height, win, "Model: ", _info.model);
 	posY++;	

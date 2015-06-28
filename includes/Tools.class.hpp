@@ -24,6 +24,7 @@
 #include <mach/mach_init.h>
 #include <mach/mach_host.h>
 
+#include "IMonitorDisplay.hpp"
 
 
 class Tools : public MonitorModule
@@ -34,7 +35,7 @@ class Tools : public MonitorModule
 		virtual ~Tools(void);
 
 		void	updateInfo( void );
-		virtual void 	drawContent( int posX, int posY, int width, int height, Window const & win );
+		virtual void 	drawContent( int posX, int posY, int width, int height, IMonitorDisplay const & win );
 	
 	private:
 		struct timeval	btime;

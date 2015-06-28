@@ -113,19 +113,19 @@ void 	CPUmod::updateInfo( void )
 }
 
 	template< typename T >
-void	printType( int posX, int posY, int width, int height, Window const &win, char const *s, T index)
+void	printType( int posX, int posY, int width, int height, IMonitorDisplay const &win, char const *s, T index)
 {
 	int offset = width / 2 - strlen(s) + 1;
 	win.print(posX + offset, posY, s, 'R');
 	win.print(posX + offset + strlen(s), posY, index);
 	width = height = 0;
 }
-void	printType( int posX, int posY, int width, Window const &win, std::string str)
+void	printType( int posX, int posY, int width, IMonitorDisplay const &win, std::string str)
 {
 	win.print(posX + (width - str.size()) / 2 , posY, str.c_str(), 'G');
 }
 
-void	CPUmod::drawContent( int posX, int posY, int width, int height, Window const & win )
+void	CPUmod::drawContent( int posX, int posY, int width, int height, IMonitorDisplay const & win )
 {
 
 	std::stringstream str;
@@ -151,17 +151,15 @@ void	CPUmod::drawContent( int posX, int posY, int width, int height, Window cons
 	posY++;
 	printType(posX, posY, width, win, speed);
 	posY++;
-	//printType(posX, posY, width, height, win, "", _info.brand);
-	//posY++;
-	printType(posX, posY, width, height, win, "CORE: ", std::to_string(_info.coreNB).c_str());
+	printType(posX, posY, width, height, win, "CORE: ", SSTR(_info.coreNB).c_str());
 	posY++;
-	printType(posX, posY, width, height, win, "FREQUENCY: ", std::to_string(_info.clockinfo.hz).c_str());
+	printType(posX, posY, width, height, win, "FREQUENCY: ", SSTR(_info.clockinfo.hz).c_str());
 	posY++;
-	printType(posX, posY, width, height, win, "MS/HZ TICK: ", std::to_string(_info.clockinfo.tick).c_str());
+	printType(posX, posY, width, height, win, "MS/HZ TICK: ", SSTR(_info.clockinfo.tick).c_str());
 	posY++;
-	printType(posX, posY, width, height, win, "CPU LOAD: ", std::to_string(_info.cpuLoad).c_str());
+	printType(posX, posY, width, height, win, "CPU LOAD: ", SSTR(_info.cpuLoad).c_str());
 	posY++;
-	printType(posX, posY, width, height, win, "CPU FREE: ", std::to_string(_info.cpuFree).c_str());
+	printType(posX, posY, width, height, win, "CPU FREE: ", SSTR(_info.cpuFree).c_str());
 }
 
 CPUmod::~CPUmod( void )

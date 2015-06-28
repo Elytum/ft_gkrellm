@@ -40,7 +40,7 @@ public:
 
 	PonyModule &	operator=( PonyModule const& rhs );
 // private:
-	virtual void		drawContent( int x, int y, int w, int h, Window const& );
+	virtual void		drawContent( int x, int y, int w, int h, IMonitorDisplay const& );
 };
 
 #endif

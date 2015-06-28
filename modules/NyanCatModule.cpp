@@ -54,7 +54,7 @@ NyanCatModule::NyanCatModule( NyanCatModule const & cpy ) : MonitorModule(WIDTH 
 NyanCatModule::~NyanCatModule( void ) {
 }
 	
-void	NyanCatModule::drawContent( int posX, int posY, int width, int height, Window const & win ) {
+void	NyanCatModule::drawContent( int posX, int posY, int width, int height, IMonitorDisplay const & win ) {
 	static int frame = 0;
 	static int tick = 200000;
 

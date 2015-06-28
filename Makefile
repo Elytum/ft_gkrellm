@@ -30,9 +30,11 @@ SRCS =	main.cpp					\
 		modules/NameModule.cpp		\
 		modules/PonyModule.cpp		\
 		modules/NyanCatModule.cpp	\
-		modules/NetworkModule.cpp
+		modules/NetworkModule.cpp	\
+		graphic/MLXWindow.cpp
 
-INC = 	includes
+INC = -I includes -I minilibx
+MOR = -L minilibx -lmlx -framework OpenGL -framework AppKit -lncurses
 
 OBJS	=	$(SRCS:.cpp=.o)
 
@@ -43,10 +45,10 @@ all: $(NAME)
 EXE		=	ft_gkrellm
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -I $(INC) -lncurses -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(INC) $(MOR) -o $(NAME)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -I $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)

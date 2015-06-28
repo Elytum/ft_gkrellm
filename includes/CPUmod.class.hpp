@@ -46,7 +46,7 @@ class CPUmod : public MonitorModule
 		void			ft_sysctl_clock(int sys, int flag);
 		float			CalculateCPULoad(unsigned long long idleTicks, unsigned long long totalTicks);
 
-		virtual void 	drawContent( int posX, int posY, int width, int height, Window const & win );
+		virtual void 	drawContent( int posX, int posY, int width, int height, IMonitorDisplay const & win );
 
 	private:
 		CPUcontainer _info;

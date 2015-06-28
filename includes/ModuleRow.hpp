@@ -16,12 +16,12 @@ public:
 	const std::vector<MonitorModule *>	getModules( void ) const;
 	int									getWidth( void ) const;
 	MonitorModule&						operator[]( int pos );
-	void								draw( int x, int y, Window const & win );
+	void								draw( int x, int y, IMonitorDisplay const & win );
 private:
 	int								width;
 	std::vector<MonitorModule *>	modules;
 };
 
-#include <Window.hpp>
+#include <IMonitorDisplay.hpp>
 
 #endif

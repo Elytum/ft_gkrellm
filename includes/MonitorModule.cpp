@@ -1,5 +1,5 @@
 #include <MonitorModule.hpp>
-#include <Window.hpp>
+#include <IMonitorDisplay.hpp>
 #include <string.h>
 
 MonitorModule::MonitorModule( void ) : _height(DEFAULT_HEIGHT), _title("")	{
@@ -47,7 +47,7 @@ MonitorModule&		MonitorModule::operator=(MonitorModule const & cpy) {
 	return *this;
 }
 
-void		MonitorModule::draw( int posX, int posY, int width, Window const & win ) {
+void		MonitorModule::draw( int posX, int posY, int width, IMonitorDisplay const & win ) {
 	const int	bufSize = 1024;
 	static char	tmp[bufSize];
 
