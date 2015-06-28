@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   OSinfo.class.hpp                                   :+:      :+:    :+:   */
+/*   Tools.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwanlin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/27 22:21:20 by bwanlin           #+#    #+#             */
-/*   Updated: 2015/06/28 13:13:42 by bwanlin          ###   ########.fr       */
+/*   Created: 2015/06/28 15:32:26 by bwanlin           #+#    #+#             */
+/*   Updated: 2015/06/28 16:17:11 by bwanlin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OSINFO_HPP
-# define OSINFO_HPP
+#ifndef TOOLS_HPP
+# define TOOLS_HPP
 # include <iostream>
 # include <sys/types.h>
 # include <sys/sysctl.h>
 # include "MonitorModule.hpp"
+#include <sys/types.h>
+#include <sys/sysctl.h>
 
-struct OScontainer
-{
-	char		model[256];
-	char		machine[256];
-	char		ostype[256];
-	char		osrelease[256];
-};
+#include <mach/vm_statistics.h>
+#include <mach/mach_types.h>
+#include <mach/mach_init.h>
+#include <mach/mach_host.h>
 
-class OSinfo : public MonitorModule
+
+
+class Tools : public MonitorModule
 {
 
 	public:
-		OSinfo(void);
-		virtual ~OSinfo(void);
+		Tools(void);
+		virtual ~Tools(void);
 
-		void	printInfo( void ) const;
 		void	updateInfo( void );
 		virtual void 	drawContent( int posX, int posY, int width, int height, Window const & win );
 	
 	private:
-		OScontainer _info;
+		struct timeval	btime;
 };
 
-#endif /* OSINFO_HPP */
+#endif /* TOOLS_HPP */
 
