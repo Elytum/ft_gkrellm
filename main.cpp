@@ -19,24 +19,16 @@ int		main( void )
 {
 
 	Window				win;
-	NameModule*			infoName = new NameModule();
-	RAMModule*			tooSmall = new RAMModule();
-	OSinfo*				infoOS = new OSinfo();
-	TimeModule*			infoTime = new TimeModule();
-	CPUmod*				infoCPU = new CPUmod();
-	PonyModule*			infoPony = new PonyModule();
-	NetworkModule*		infoNetwork = new NetworkModule();
-	NyanCatModule*		infoNyanCat = new NyanCatModule();
-
+	
 	win.open();
-	win.addModule(tooSmall, 1);
-	win.addModule(infoOS, 2);
-	win.addModule(infoTime, 1);
-	win.addModule(infoName, 1);
-	win.addModule(infoCPU, 2);
-	win.addModule(infoPony, 2);
-	win.addModule(infoNetwork, 3);
-	win.addModule(infoNyanCat, 3);
+	win.addModule(new RAMModule(), 1);
+	win.addModule(new OSinfo(), 2);
+	win.addModule(new TimeModule(), 1);
+	win.addModule(new NameModule(), 1);
+	win.addModule(new CPUmod(), 2);
+	win.addModule(new PonyModule(), 2);
+	// win.addModule(new NetworkModule(), 3);
+	win.addModule(new NyanCatModule(), 3);
 	while (42) {
 		win.refresh();
 		win.flush();

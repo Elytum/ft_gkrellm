@@ -70,10 +70,6 @@ void	Window::open( void ) {
 	init_pair(20, COLOR_BLACK, COLOR_GREY);
 
 
-	// init_color(COLOR_RED, 500, 500, 500);
-
-	// wbkgd(window_white, COLOR_PAIR(5));
-
 	noecho();
 	curs_set(FALSE);
 	nodelay(main_window, TRUE);

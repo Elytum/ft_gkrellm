@@ -5,33 +5,33 @@
 "bbbbbbbbbbbwwbwwbbbbbbbbbbbb" \
 "bbbbbbbbbbbbbwbbbbbbbbbbbbbb" \
 "bbbbbbb             bbbbbbbb" \
-"rrrbbb wwwwwwwwwww   bbb   b" \
-"yyyrrr wmmrmmmrmmmw        b" \
-"gggyyy wmmmmmrmmmmw  w  w  b" \
-"cccggg wwwwwwwwwwww m    m b" \
-"bbbccc                    bb" \
+"rrrbbb wwwwwwwwwwweeebbbeeeb" \
+"yyyrrr wmmrmmmrmmmweeeeeeeeb" \
+"gggyyy wmmmmmrmmmmweeweeweeb" \
+"cccggg wwwwwwwwwwwwemeeeemeb" \
+"bbbccc               eeee bb" \
 "bbbbbb  bb bbbbbbb  bb  bbbb"
 
 #define FRAME1 \
 "bbbbbbbbbbbwwbwwbbbbbbbbbbbb" \
 "bbbbbbbbbbbbbwbbbbbbbbbbbbbb" \
-"bbbbbbb              bbb   b" \
-"bbbbbb wwwwwwwwwww         b" \
-"rrrrrr wmmrmmmrmmmw  w  w  b" \
-"yyyyyy wmmmmmrmmmmw m    m b" \
-"gggggg wwwwwwwwwwww        b" \
-"cccccc                    bb" \
+"bbbbbbb           eeebbbeeeb" \
+"bbbbbb wwwwwwwwwwweeeeeeeeeb" \
+"rrrrrr wmmrmmmrmmmweeweeweeb" \
+"yyyyyy wmmmmmrmmmmwemeeeemeb" \
+"gggggg wwwwwwwwwwww eeee  bb" \
+"cccccc                   bbb" \
 "bbbbbbb  bb bbbbbbb  bb  bbb"
 
 #define FRAME2 \
 "bbbbbbbbbbbwwbwwbbbbbbbbbbbb" \
 "bbbbbbbbbbbbbwbbbbbbbbbbbbbb" \
 "bbbbbbb             bbbbbbbb" \
-"bbbbbb wwwwwwwwwww   bbb   b" \
-"bbbrrr wmmrmmmrmmmw        b" \
-"rrryyy wmmmmmrmmmmw  w  w  b" \
-"yyyggg wwwwwwwwwwww m    m b" \
-"gggccc                    bb" \
+"bbbbbb wwwwwwwwwwweeebbbeeeb" \
+"bbbrrr wmmrmmmrmmmweeeeeeeeb" \
+"rrryyy wmmmmmrmmmmweeweeweeb" \
+"yyyggg wwwwwwwwwwwwemeeeemeb" \
+"gggccc              eeee  bb" \
 "cccbb  bb bbbbbbb  bb  bbbbb"
 
 #include <math.h>
