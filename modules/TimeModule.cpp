@@ -33,10 +33,10 @@ TimeModule &	TimeModule::operator=( TimeModule const& )
 
 void		TimeModule::drawContent( int posX, int posY, int width, int height, Window const & win ) const
 {
-	 if (width < REQUIRED_WIDTH - 3 || height < REQUIRED_HEIGHT - 3)
-	 {
-	 	return ;
-	 }
+	if (width < REQUIRED_WIDTH - 3 || height < REQUIRED_HEIGHT - 3)
+	{
+		return ;
+	}
 
 	std::time_t t = std::time(0); 
 
