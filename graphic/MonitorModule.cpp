@@ -8,10 +8,10 @@ MonitorModule::MonitorModule( void ) : _height(DEFAULT_HEIGHT), _title("")	{
 MonitorModule::MonitorModule( int width, int height ) : _width(width), _height(height), _title("")	{
 }
 
-MonitorModule::MonitorModule( const char *title ) : _height(DEFAULT_HEIGHT), _title(title)	{
+MonitorModule::MonitorModule( std::string title ) : _height(DEFAULT_HEIGHT), _title(title)	{
 }
 
-MonitorModule::MonitorModule( int width, int height, const char *title ) : _width(width), _height(height), _title(title)	{
+MonitorModule::MonitorModule( int width, int height, std::string title ) : _width(width), _height(height), _title(title)	{
 }
 
 MonitorModule::MonitorModule( MonitorModule const & cpy ) : _title(cpy._title) {

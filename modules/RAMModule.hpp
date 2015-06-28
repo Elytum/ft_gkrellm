@@ -21,12 +21,14 @@ class	RAMModule:public MonitorModule
 {
 public:
 	RAMModule( void );
-	RAMModule( char * );
 	RAMModule( RAMModule const& rhs );
 	~RAMModule( void );
 
 	RAMModule &	operator=( RAMModule const& rhs );
-	virtual void		draw( int x, int y, int w, Window const& ) const;
+	
+	// virtual void	draw( int x, int y, int w, Window const& ) const;
+	virtual void	drawContent( int posX, int posY, int width, int height, Window const & win ) const;
+
 };
 
 #endif

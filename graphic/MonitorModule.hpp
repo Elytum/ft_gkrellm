@@ -11,10 +11,10 @@ class MonitorModule : public IMonitorModule
 {
 public:
 	MonitorModule( void );
-	MonitorModule( const char *title );
+	MonitorModule( std::string title );
 	MonitorModule( MonitorModule const & cpy );
 	MonitorModule( int width, int height );
-	MonitorModule( int width, int height, const char *title );
+	MonitorModule( int width, int height, std::string title );
 	virtual	~MonitorModule( void );
 	
 	virtual void				setHeight( int height );

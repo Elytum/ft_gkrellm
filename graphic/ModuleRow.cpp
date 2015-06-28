@@ -1,6 +1,6 @@
 #include <ModuleRow.hpp>
 
-ModuleRow::ModuleRow( void ) : width(DEFAULT_WIDTH) {
+ModuleRow::ModuleRow( void ) : width(0) {
 }
 
 ModuleRow::~ModuleRow( void ) {
