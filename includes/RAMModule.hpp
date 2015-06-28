@@ -3,7 +3,7 @@
 
 # include <string>
 # include <iostream>
-# include <../graphic/MonitorModule.hpp>
+# include "MonitorModule.hpp"
 
 typedef std::string string;
 typedef unsigned int uint;

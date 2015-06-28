@@ -1,15 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   OSinfo.class.hpp                                   :+:      :+:    :+:   */
+/*   CPUmod.class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwanlin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/27 22:21:20 by bwanlin           #+#    #+#             */
-/*   Updated: 2015/06/28 01:03:33 by bwanlin          ###   ########.fr       */
+/*   Created: 2015/06/28 01:34:10 by bwanlin           #+#    #+#             */
+/*   Updated: 2015/06/28 01:59:31 by bwanlin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #ifndef OSINFO_HPP
 # define OSINFO_HPP
 # include <iostream>
@@ -17,25 +16,24 @@
 # include <sys/types.h>
 # include <sys/sysctl.h>
 
-struct OScontainer
+struct CPUcontainer
 {
-	char		model[256];
-	char		machine[256];
+	int32_t		activecpu;
 	int32_t		cputype;
 	int32_t		cpufamily;
 	int64_t		memsize;
 };
 
-class OSinfo {
+class CPUmod {
 
 	public:
-		OSinfo(void);
-		~OSinfo(void);
+		CPUmod(void);
+		~CPUmod(void);
 
 		void	printInfo( void );
 		void	updateInfo( void );
 	private:
-		OScontainer _info;
+		CPUcontainer _info;
 };
 
 #endif /* OSINFO_HPP */

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   OSinfo.class.cpp                                   :+:      :+:    :+:   */
+/*   CPUmod.class.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwanlin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/27 22:20:35 by bwanlin           #+#    #+#             */
-/*   Updated: 2015/06/28 03:13:19 by bwanlin          ###   ########.fr       */
+/*   Created: 2015/06/28 01:32:53 by bwanlin           #+#    #+#             */
+/*   Updated: 2015/06/28 01:59:30 by bwanlin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "CPUmod.class.hpp"
 
-#include "OSinfo.class.hpp"
-#include <string>
-OSinfo::OSinfo( void ) : MonitorModule(45, 8, "OSinfo")
+CPUmod::CPUmod( void )
 {
+	std::cout << ".Constructor CPUmod called" << std::endl;
 	updateInfo();
+	printInfo();
 }
 
-void	OSinfo::printInfo( void ) const
+void	CPUmod::printInfo( void )
 {
-	std::cout << ".Retrieving Data from OSinfo" << std::endl;
+	std::cout << ".Retrieving Data from CPUmod" << std::endl;
 	std::cout << "hw.model: " << _info.model << std::endl;
 	std::cout << "hw.machine: " << _info.machine << std::endl;
 	std::cout << "hw.cputype: " << _info.cputype << std::endl;
@@ -27,8 +28,9 @@ void	OSinfo::printInfo( void ) const
 	std::cout << "hw.memsize: " << _info.memsize << std::endl;
 }
 
-void OSinfo::updateInfo( void )
+void CPUmod::updateInfo( void )
 {
+	std::cout << ".UpdateInfo CPUmod called" << std::endl;
 	
 	size_t	model = sizeof(_info.model);
 	size_t	machine = sizeof(_info.machine);
@@ -43,29 +45,7 @@ void OSinfo::updateInfo( void )
 	sysctlbyname("hw.memsize", &_info.memsize, &memsize, NULL, 0);
 }
 
-template< typename T >
-void	printType( int posX, int posY, int width, int height, Window const &win, char const *s, T index)
+CPUmod::~CPUmod( void )
 {
-	win.print(posX + 1, posY, s);
-	win.print(posX + 1 + strlen(s), posY, index);
-	width = height = 0;
-}
-
-void	OSinfo::drawContent( int posX, int posY, int width, int height, Window const & win ) const
-{
-	printType(posX, posY, width, height, win, "hw.model: ", _info.model);
-	posY++;	
-	printType(posX, posY, width, height, win, "hw.machine: ", _info.machine);
-	posY++;
-	printType(posX, posY, width, height, win, "hw.cputype: ", (std::to_string(_info.cputype)).c_str());
-	posY++;	
-	printType(posX, posY, width, height, win, "hw.cpufamily: ", (std::to_string(_info.cpufamily)).c_str());
-	posY++;
-	printType(posX, posY, width, height, win, "hw.memsize: ", (std::to_string(_info.memsize)).c_str());
-	posY++;
-
-}
-
-OSinfo::~OSinfo( void )
-{
+	std::cout << ".Destructor CPUmod called" << std::endl;
 }

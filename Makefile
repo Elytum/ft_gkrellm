@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: achazal <achazal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2014/11/03 11:54:29 by achazal           #+#    #+#              #
-#    Updated: 2015/06/28 01:24:28 by bwanlin          ###   ########.fr        #
+#    Created: 2015/06/09 19:27:02 by bwanlin           #+#    #+#              #
+#    Updated: 2015/06/28 03:21:24 by bwanlin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,10 @@ SRCS =	main.cpp					\
 		graphic/Window.cpp			\
 		modules/OSinfo.class.cpp	\
 		modules/RAMModule.cpp		\
-		modules/FooBar.cpp
+		modules/FooBar.cpp			\
+		modules/TimeModule.cpp
 
-INC = -I./graphic -I./modules
+INC = 	includes
 
 OBJS	=	$(SRCS:.cpp=.o)
 
@@ -33,11 +34,13 @@ OBJS	=	$(SRCS:.cpp=.o)
 
 all: $(NAME)
 
+EXE		=	ft_gkrellm
+
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -lncurses -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -I $(INC) -lncurses -o $(NAME)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(INC) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
