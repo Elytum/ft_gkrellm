@@ -7,6 +7,7 @@
 #include "NameModule.hpp"
 #include "CPUmod.class.hpp"
 #include "PonyModule.hpp"
+#include "NetworkModule.hpp"
 #include "NyanCatModule.hpp"
 
 //TODO
@@ -16,6 +17,7 @@
 //add un IMonitorDisplay qui contient tout les print, printbox, et printline
 int		main( void )
 {
+
 	Window				win;
 	NameModule*			infoName = new NameModule();
 	RAMModule*			tooSmall = new RAMModule();
@@ -23,6 +25,7 @@ int		main( void )
 	TimeModule*			infoTime = new TimeModule();
 	CPUmod*				infoCPU = new CPUmod();
 	PonyModule*			infoPony = new PonyModule();
+	NetworkModule*		infoNetwork = new NetworkModule();
 	NyanCatModule*		infoNyanCat = new NyanCatModule();
 
 	win.open();
@@ -32,6 +35,7 @@ int		main( void )
 	win.addModule(infoName, 1);
 	win.addModule(infoCPU, 2);
 	win.addModule(infoPony, 2);
+	win.addModule(infoNetwork, 3);
 	win.addModule(infoNyanCat, 3);
 	while (42) {
 		win.refresh();

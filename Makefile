@@ -28,7 +28,8 @@ SRCS =	main.cpp					\
 		modules/TimeModule.cpp		\
 		modules/NameModule.cpp		\
 		modules/PonyModule.cpp		\
-		modules/NyanCatModule.cpp
+		modules/NyanCatModule.cpp	\
+		modules/NetworkModule.cpp
 
 INC = 	includes
 
