@@ -51,32 +51,24 @@ void		MonitorModule::draw( int posX, int posY, int width, Window const & win ) {
 	const int	bufSize = 1024;
 	static char	tmp[bufSize];
 
-	// for (int x = 0; x <= width; ++x) {
-	// 	win.print(posX + x, posY, "_");
-	// 	win.print(posX + x, posY + _height, "_");
-	// }
-	// for (int y = 1; y <= _height; ++y) {
-	// 	win.print(posX, posY + y, "|");
-	// 	win.print(posX + width, posY + y, "|");
-	// }
 	win.printBox(posX, posY, width, _height);
 
 	if (_title.size()) {
 		win.printHLine(posX, posY + 2, width);
 		int diff = width - 2 - _title.size();
 		if (diff > 0) {
-			win.print(posX + 1 + diff / 2, posY + 1, _title.c_str());
+			win.print(posX + 1 + diff / 2, posY + 1, _title.c_str(), RED);
 			drawContent(posX + 1, posY + 3, width - 1, _height - 3, win);
 		}
 		else if (diff == 0) {
-			win.print(posX + 1, posY + 1, _title.c_str());
+			win.print(posX + 1, posY + 1, _title.c_str(), RED);
 			drawContent(posX + 1, posY + 3, width - 1, _height - 3, win);
 		}
 		else if (bufSize >= 2 && width - 2 < bufSize) {
 				memcpy(tmp, _title.c_str(), bufSize);
 				tmp[width - 2] = '.';
 				tmp[width - 1] = '\0';
-				win.print(posX + 1, posY + 1, tmp);
+				win.print(posX + 1, posY + 1, tmp, RED);
 				drawContent(posX + 1, posY + 1, width - 1, _height - 3, win);
 		}
 	}
