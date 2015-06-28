@@ -6,7 +6,7 @@
 #    By: bwanlin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/09 19:27:02 by bwanlin           #+#    #+#              #
-#    Updated: 2015/06/28 02:11:58 by bwanlin          ###   ########.fr        #
+#    Updated: 2015/06/28 02:21:18 by bwanlin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,15 @@ CC		=	clang++
 
 CFLAGS	=	-Wall -Werror -Wextra -g
 
-LDFLAGS	=
+LDFLAGS	=	-lncurses
 
 SRC		=	graphic/ModuleRow.cpp		\
 			graphic/MonitorModule.cpp	\
 			graphic/Window.cpp			\
 			modules/Foobar.cpp			\
 			modules/OSinfo.class.cpp	\
-			modules/RAMModule.cpp
+			modules/RAMModule.cpp		\
+			main.cpp
 
 INC		=	includes
 

@@ -7,7 +7,7 @@ class FooBar : public MonitorModule
 {
 public:
 	FooBar( void );
-	FooBar( const char *name );
+	FooBar( std::string name );
 	FooBar( FooBar const & cpy );
 	virtual	~FooBar( void );
 	

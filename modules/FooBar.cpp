@@ -5,7 +5,7 @@
 FooBar::FooBar( void ) : MonitorModule(15, "FooBar") {
 }
 
-FooBar::FooBar( const char *name ) : MonitorModule(15, name) {
+FooBar::FooBar(std::string name ) : MonitorModule(name) {
 }
 
 FooBar::FooBar( FooBar const & cpy ) : MonitorModule(15, "FooBar") {

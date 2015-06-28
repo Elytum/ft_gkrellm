@@ -1,8 +1,8 @@
 #include <MonitorModule.hpp>
 #include <Window.hpp>
 #include <FooBar.hpp>
-#include "OSinfo.hpp"
-#include "CPUmod.hpp"
+#include "OSinfo.class.hpp"
+#include "RAMModule.hpp"
 
 int		main( void )
 {

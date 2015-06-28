@@ -5,10 +5,7 @@
 MonitorModule::MonitorModule( void ) : _height(DEFAULT_HEIGHT), _title("")	{
 }
 
-MonitorModule::MonitorModule( int height ) : _height(height), _title("")	{
-}
-
-MonitorModule::MonitorModule( const char *title ) : _height(DEFAULT_HEIGHT), _title(title)	{
+MonitorModule::MonitorModule( std::string title ) : _height(DEFAULT_HEIGHT), _title(title)	{
 }
 
 MonitorModule::MonitorModule( int height, const char *title ) : _height(height), _title(title)	{
