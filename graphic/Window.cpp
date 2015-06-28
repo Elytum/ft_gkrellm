@@ -69,6 +69,7 @@ void	Window::open( void ) {
 
 	noecho();
 	curs_set(FALSE);
+	nodelay(main_window, TRUE);
 }
 
 void				Window::close( void )	{

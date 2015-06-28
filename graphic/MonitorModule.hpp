@@ -13,6 +13,8 @@ public:
 	MonitorModule( void );
 	MonitorModule( std::string title );
 	MonitorModule( MonitorModule const & cpy );
+	MonitorModule( int height );
+	MonitorModule( int height, const char *title );
 	virtual	~MonitorModule( void );
 	
 	virtual void				setHeight( int height );

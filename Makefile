@@ -21,7 +21,7 @@ SRCS =	main.cpp					\
 		graphic/ModuleRow.cpp		\
 		graphic/MonitorModule.cpp	\
 		graphic/Window.cpp			\
-		OSinfo.class.cpp			\
+		modules/OSinfo.class.cpp	\
 		modules/RAMModule.cpp		\
 		modules/FooBar.cpp
 
