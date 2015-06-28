@@ -1,15 +1,15 @@
-#include "includes/MonitorModule.hpp"
-#include "includes/Window.hpp"
-#include "includes/FooBar.hpp"
-#include "includes/OSinfo.class.hpp"
-#include "includes/RAMModule.hpp"
-#include "includes/TimeModule.hpp"
-#include "includes/NameModule.hpp"
-#include "includes/CPUmod.class.hpp"
-#include "includes/PonyModule.hpp"
-#include "includes/NetworkModule.hpp"
-#include "includes/NyanCatModule.hpp"
-#include "includes/Tools.class.hpp"
+#include <MonitorModule.hpp>
+#include <Window.hpp>
+#include <FooBar.hpp>
+#include "OSinfo.class.hpp"
+#include "RAMModule.hpp"
+#include "TimeModule.hpp"
+#include "NameModule.hpp"
+#include "CPUmod.class.hpp"
+#include "PonyModule.hpp"
+#include "NetworkModule.hpp"
+#include "NyanCatModule.hpp"
+#include "Tools.class.hpp"
 
 
 #include <sstream>
@@ -22,7 +22,7 @@ void	parseConfig( Window & win ) {
     std::string str; 
     std::string delimiter = " ";
 
-	while (std::getline(file, str)) {
+    while (std::getline(file, str)) {
 		size_t pos = 0;
 		std::string token;
 		std::vector<std::string>	array;
@@ -58,7 +58,7 @@ void	parseConfig( Window & win ) {
 					win.addModule(new CPUmod(), pos);
 			}
 		}
-	}
+    }
 }
 
 int		main( void )
@@ -66,15 +66,7 @@ int		main( void )
 
 	Window				win;
 	win.open();
-	//parseConfig(win);
-	win.addModule(new OSinfo(), 1);
-	win.addModule(new RAMModule(), 1);
-	win.addModule(new TimeModule(), 1);
-	win.addModule(new NameModule(), 1);
-	win.addModule(new CPUmod(), 1);
-	win.addModule(new PonyModule(), 1);
-	win.addModule(new NetworkModule(), 1);
-	win.addModule(new NyanCatModule(), 1);
+	parseConfig(win);
 	while (42) {
 		win.refresh();
 		win.flush();

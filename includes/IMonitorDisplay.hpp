@@ -1,9 +1,6 @@
 #ifndef IMONITOR_DISPLAY_HPP
 # define IMONITOR_DISPLAY_HPP
 
-# include <ModuleRow.hpp>
-# include <MonitorModule.hpp>
-
 enum colorsKind {
 	BLACK = 1,
 	RED = 1,
@@ -29,6 +26,7 @@ enum colorsKind {
 };
 
 class ModuleRow;
+class MonitorModule;
 
 class IMonitorDisplay
 {
