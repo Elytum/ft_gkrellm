@@ -2,15 +2,15 @@
 #define HEIGHT 10
 
 #define FRAME1 \
-"BBBBBBBBBBBWWBWWBBBBBBBBBBBB" \
-"BBBBBBBBBBBBBWBBBBBBBBBBBBBB" \
-"BBBBBBB             BBBBB  B" \
-"RRRBBB WWWWWWWWWWW   MMMW  B" \
-"YYYRRR WMMRMMMRMMMM        B" \
-"GGGYYY WMMMMMRMMMMM  W  W  B" \
-"CCCGGG WMMMMMMMMMMMMM    M B" \
-"BBBCCC WWWWWWWWWWWWWWWWWW BB" \
-"BBBBBB  BB BBBBBBB  BB  BBBB"
+"bbbbbbbbbbbwwbwwbbbbbbbbbbbb" \
+"bbbbbbbbbbbbbwbbbbbbbbbbbbbb" \
+"bbbbbbb             bbbbbbbb" \
+"rrrbbb wwwwwwwwwww   bbb   b" \
+"yyyrrr wmmrmmmrmmmw        b" \
+"gggyyy wmmmmmrmmmmw  w  w  b" \
+"cccggg wwwwwwwwwwwww q    m b" \
+"bbbccc                    bb" \
+"bbbbbb  bb bbbbbbb  bb  bbbb"
 
 #include <math.h>
 
@@ -36,7 +36,7 @@ void	NyanCatModule::drawContent( int posX, int posY, int width, int height, Wind
 	for (int y = 0; (y < height && y <= HEIGHT); ++y) {
 		i = pos;
 		for (int x = 0; (x < width && x <= WIDTH); ++x) {
-			win.print(posX + x, posY + y, FRAME1[i], FRAME1[i]);
+			win.print(posX + x, posY + y, ' ', FRAME1[i]);
 			++i;
 		}
 		pos += width;
