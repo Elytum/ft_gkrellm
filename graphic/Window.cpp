@@ -51,8 +51,12 @@ void	Window::open( void ) {
 	window_blue = derwin(main_window, w.ws_row, w.ws_col, 0, 0);
 	window_yellow = derwin(main_window, w.ws_row, w.ws_col, 0, 0);
 	window_white = derwin(main_window, w.ws_row, w.ws_col, 0, 0);
+	window_orange = derwin(main_window, w.ws_row, w.ws_col, 0, 0);
+	window_violet = derwin(main_window, w.ws_row, w.ws_col, 0, 0);
 
 	init_color(COLOR_RED, 500, 500, 500);
+	init_color(COLOR_ORANGE, 255, 165, 0);
+	init_color(COLOR_VIOLET, 153, 50, 204);
 	start_color();
 
 	init_pair(1, COLOR_RED, COLOR_BLACK);
@@ -60,12 +64,16 @@ void	Window::open( void ) {
 	init_pair(3, COLOR_BLUE, COLOR_BLACK);
 	init_pair(4, COLOR_YELLOW, COLOR_BLACK);
 	init_pair(5, COLOR_WHITE, COLOR_BLACK);
+	init_pair(6, COLOR_ORANGE, COLOR_BLACK);
+	init_pair(7, COLOR_VIOLET, COLOR_BLACK);
 
 	wbkgd(window_red, COLOR_PAIR(1));
 	wbkgd(window_green, COLOR_PAIR(2));
 	wbkgd(window_blue, COLOR_PAIR(3));
 	wbkgd(window_yellow, COLOR_PAIR(4));
 	wbkgd(window_white, COLOR_PAIR(5));
+	wbkgd(window_orange, COLOR_PAIR(6));
+	wbkgd(window_violet, COLOR_PAIR(7));
 
 	noecho();
 	curs_set(FALSE);
