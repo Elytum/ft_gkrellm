@@ -10,29 +10,23 @@
 #include "NetworkModule.hpp"
 #include "NyanCatModule.hpp"
 #include "Tools.class.hpp"
+
 int		main( void )
 {
 	char				c;
 	Window				win;
-	RAMModule*			infoRAM = new RAMModule();
-	NameModule*			infoName = new NameModule();
-	OSinfo*				infoOS = new OSinfo();
-	TimeModule*			infoTime = new TimeModule();
-	CPUmod*				infoCPU = new CPUmod();
-	PonyModule*			infoPony = new PonyModule();
-	NyanCatModule*		infoNyanCat = new NyanCatModule();
-	Tools*				infoTools = new Tools();
-
 	win.open();
+
 	win.color_tab = 0;
-	
-	win.addModule(infoTime, 1);
-	win.addModule(infoTools, 1);
-	win.addModule(infoNyanCat, 4);
-	win.addModule(infoPony, 1);
-	win.addModule(infoOS, 2);
-	win.addModule(infoRAM, 3);
-	win.addModule(infoCPU, 3);
+
+	win.addModule(new NameModule(), 1);
+	win.addModule(new TimeModule(), 1);
+	win.addModule(new Tools(), 1);
+	win.addModule(new NyanCatModule(), 4);
+	win.addModule(new PonyModule(), 1);
+	win.addModule(new OSinfo(), 2);
+	win.addModule(new RAMModule(), 3);
+	win.addModule(new CPUmod(), 3);
 
 	while (42) {
 		win.refresh();
