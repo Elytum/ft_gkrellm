@@ -443,11 +443,11 @@ void		PonyModule::drawContent( int posX, int posY, int width, int height, Window
 	}
 
 	//win.print(posX + (width - 35) / 2, posY - 1, gallop[gallop_count][0]);
-	win.print(posX + (width - 35) / 2, posY + 0, gallop[gallop_count][1], 'R');
-	win.print(posX + (width - 35) / 2, posY + 1, gallop[gallop_count][2], 'R');
-	win.print(posX + (width - 35) / 2, posY + 2, gallop[gallop_count][3], 'R');
-	win.print(posX + (width - 35) / 2, posY + 3, gallop[gallop_count][4], 'R');
-	win.print(posX + (width - 35) / 2, posY + 4, gallop[gallop_count][5], 'R');
-	win.print(posX + (width - 35) / 2, posY + 5, gallop[gallop_count][6], 'R');
+	win.print(posX + (width - 35) / 2, posY + 0, gallop[gallop_count][1]);
+	win.print(posX + (width - 35) / 2, posY + 1, gallop[gallop_count][2]);
+	win.print(posX + (width - 35) / 2, posY + 2, gallop[gallop_count][3]);
+	win.print(posX + (width - 35) / 2, posY + 3, gallop[gallop_count][4]);
+	win.print(posX + (width - 35) / 2, posY + 4, gallop[gallop_count][5]);
+	win.print(posX + (width - 35) / 2, posY + 5, gallop[gallop_count][6]);
 
 };
