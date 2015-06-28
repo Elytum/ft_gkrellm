@@ -23,7 +23,8 @@ SRCS =	main.cpp					\
 		graphic/Window.cpp			\
 		modules/OSinfo.class.cpp	\
 		modules/RAMModule.cpp		\
-		modules/FooBar.cpp
+		modules/FooBar.cpp			\
+		modules/TimeModule.cpp
 
 INC = -I./graphic -I./modules
 
