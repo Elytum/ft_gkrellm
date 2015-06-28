@@ -8,7 +8,7 @@
 #include "CPUmod.class.hpp"
 #include "PonyModule.hpp"
 #include "NyanCatModule.hpp"
-
+#include "Tools.class.hpp"
 int		main( void )
 {
 	Window				win;
@@ -19,12 +19,14 @@ int		main( void )
 	CPUmod*				infoCPU = new CPUmod();
 	PonyModule*			infoPony = new PonyModule();
 	NyanCatModule*		infoNyanCat = new NyanCatModule();
+	Tools*				infoTools = new Tools();
 
 	win.open();
 	win.addModule(infoName, 1);
 	win.addModule(infoTime, 1);
+	win.addModule(infoTools, 1);
 	win.addModule(infoNyanCat, 4);
-	win.addModule(infoPony, 5);
+	win.addModule(infoPony, 1);
 	win.addModule(infoOS, 2);
 	win.addModule(infoRAM, 3);
 	win.addModule(infoCPU, 3);

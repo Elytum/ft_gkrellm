@@ -6,7 +6,7 @@
 #    By: achazal <achazal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/09 19:27:02 by bwanlin           #+#    #+#              #
-#    Updated: 2015/06/28 07:42:53 by bwanlin          ###   ########.fr        #
+#    Updated: 2015/06/28 15:50:20 by bwanlin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS =	main.cpp					\
 		modules/RAMModule.cpp		\
 		modules/FooBar.cpp			\
 		modules/TimeModule.cpp		\
+		modules/Tools.class.cpp		\
 		modules/NameModule.cpp		\
 		modules/PonyModule.cpp		\
 		modules/NyanCatModule.cpp

@@ -1,5 +1,6 @@
 #include <Window.hpp>
 
+
 Window::Window() : opened(false),
 	window_white(NULL), main_window(NULL) {
 		modules.resize(MAX_WIDTH_MODULES);
@@ -78,7 +79,7 @@ void		Window::clr( void ) const {
 void		Window::print( int x, int y, char const *c ) const {
 	if (x < 0 || y < 0 || x >= width || y >= height)
 		return ;
-	doPrint(x, y, c, 0);
+	doPrint(x, y, c, WHITE);
 }
 
 void		Window::print( int x, int y, char const c ) const {
@@ -88,46 +89,54 @@ void		Window::print( int x, int y, char const c ) const {
 	tmp[1] = '\0';
 	if (x < 0 || y < 0 || x >= width || y >= height)
 		return ;
-	doPrint(x, y, tmp, 1);
+	doPrint(x, y, tmp, WHITE);
 }
 
-void		Window::doPrint(int x, int y, const char *str, int color) const {
-	wattron(main_window, COLOR_PAIR(color));
-	mvwprintw(main_window, y, x, str);
-	wattroff(main_window, COLOR_PAIR(color));
+void		Window::doPrint(int x, int y, const char *str, colorsKind color) const {
+	if (color) {
+		wattron(main_window, COLOR_PAIR(color));
+		mvwprintw(main_window, y, x, str);
+		wattroff(main_window, COLOR_PAIR(color));
+	} else
+		mvwprintw(main_window, y, x, str);
+}
+
+static colorsKind	getColor(char color) {
+	if (color == 'R')
+		return (RED);
+	else if (color == 'G')
+		return (GREEN);
+	else if (color == 'B')
+		return (BLUE);
+	else if (color == 'Y')
+		return (YELLOW);
+	else if (color == 'W')
+		return (WHITE);
+	else if (color == 'M')
+		return (MAGENTA);
+	else if (color == 'C')
+		return (CYAN);
+	else if (color == 'r')
+		return (REVERSE_RED);
+	else if (color == 'g')
+		return (REVERSE_GREEN);
+	else if (color == 'b')
+		return (REVERSE_BLUE);
+	else if (color == 'y')
+		return (REVERSE_YELLOW);
+	else if (color == 'w')
+		return (REVERSE_WHITE);
+	else if (color == 'm')
+		return (REVERSE_MAGENTA);
+	else if (color == 'c')
+		return (REVERSE_CYAN);
+	return (BLACK);
 }
 
 void		Window::print( int x, int y, char const *c, char const color ) const {
 	if (x < 0 || y < 0 || x >= width || y >= height)
 		return ;
-	if (color == 'R')
-		doPrint(x, y, c, 1);
-	else if (color == 'G')
-		doPrint(x, y, c, 2);
-	else if (color == 'B')
-		doPrint(x, y, c, 3);
-	else if (color == 'Y')
-		doPrint(x, y, c, 4);
-	else if (color == 'W')
-		doPrint(x, y, c, 5);
-	else if (color == 'M')
-		doPrint(x, y, c, 6);
-	else if (color == 'C')
-		doPrint(x, y, c, 7);
-	else if (color == 'r')
-		doPrint(x, y, c, 8);
-	else if (color == 'g')
-		doPrint(x, y, c, 9);
-	else if (color == 'b')
-		doPrint(x, y, c, 10);
-	else if (color == 'y')
-		doPrint(x, y, c, 11);
-	else if (color == 'w')
-		doPrint(x, y, c, 12);
-	else if (color == 'm')
-		doPrint(x, y, c, 13);
-	else if (color == 'c')
-		doPrint(x, y, c, 14);
+	doPrint(x, y, c, getColor(color));
 }
 
 void		Window::print( int x, int y, char const c, char const color ) const {
@@ -137,34 +146,7 @@ void		Window::print( int x, int y, char const c, char const color ) const {
 		return ;
 	tmp[0] = c;
 	tmp[1] = '\0';
-	if (color == 'R')
-		doPrint(x, y, tmp, 1);
-	else if (color == 'G')
-		doPrint(x, y, tmp, 2);
-	else if (color == 'B')
-		doPrint(x, y, tmp, 3);
-	else if (color == 'Y')
-		doPrint(x, y, tmp, 4);
-	else if (color == 'W')
-		doPrint(x, y, tmp, 5);
-	else if (color == 'M')
-		doPrint(x, y, tmp, 6);
-	else if (color == 'C')
-		doPrint(x, y, tmp, 7);
-	else if (color == 'r')
-		doPrint(x, y, tmp, 8);
-	else if (color == 'g')
-		doPrint(x, y, tmp, 9);
-	else if (color == 'b')
-		doPrint(x, y, tmp, 10);
-	else if (color == 'y')
-		doPrint(x, y, tmp, 11);
-	else if (color == 'w')
-		doPrint(x, y, tmp, 12);
-	else if (color == 'm')
-		doPrint(x, y, tmp, 13);
-	else if (color == 'c')
-		doPrint(x, y, tmp, 14);
+	doPrint(x, y, tmp, getColor(color));
 }
 
 void		Window::printBox(int x, int y, int w, int h) const {
@@ -176,10 +158,6 @@ void		Window::printBox(int x, int y, int w, int h) const {
 	mvwhline(window_white, y + h, x + 1, ACS_HLINE, w - 1);
 	mvwvline(window_white, y + 1, x, '|', h - 1);
 	mvwvline(window_white, y + 1, x + w, '|', h - 1);
-	// (void)x;
-	// (void)y;
-	// (void)w;
-	// (void)h;
 }
 
 void		Window::printHLine(int x, int y, int w) const
@@ -187,9 +165,6 @@ void		Window::printHLine(int x, int y, int w) const
 	mvwaddch(window_white, y, x, ACS_PLUS);
 	mvwaddch(window_white, y, x + w, ACS_PLUS);
 	mvwhline(window_white, y, x + 1, ACS_HLINE, w - 1);
-	// (void)x;
-	// (void)y;
-	// (void)w;
 };
 
 void	Window::flush( void )	{
