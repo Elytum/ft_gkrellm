@@ -2,13 +2,13 @@
 
 #include <FooBar.hpp>
 
-FooBar::FooBar( void ) : MonitorModule(15, "FooBar") {
+FooBar::FooBar( void ) : MonitorModule(45, 10, "FooBar") {
 }
 
-FooBar::FooBar( const char *name ) : MonitorModule(15, name) {
+FooBar::FooBar( const char *name ) : MonitorModule(45, 10, name) {
 }
 
-FooBar::FooBar( FooBar const & cpy ) : MonitorModule(15, "FooBar") {
+FooBar::FooBar( FooBar const & cpy ) : MonitorModule(45, 10, "FooBar") {
 	(void)cpy;
 }
 

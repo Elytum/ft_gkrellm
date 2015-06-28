@@ -8,6 +8,10 @@ ModuleRow::~ModuleRow( void ) {
 
 void								ModuleRow::addModule( MonitorModule * mod ) {
 	modules.push_back(mod);
+	for (unsigned int i = 0; i < modules.size(); ++i) {
+		if (modules[i]->getWidth() > width)
+			width = modules[i]->getWidth();
+	}
 }
 
 const std::vector<MonitorModule *>	ModuleRow::getModules( void ) const {

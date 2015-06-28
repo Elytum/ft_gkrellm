@@ -26,6 +26,7 @@ public:
 	void		close( void );
 	void		clr( void ) const;
 	void		print( int x, int y, char const *c ) const;
+	void		print( int x, int y, char const c ) const;
 	void		print( int x, int y, char const *c, char const color ) const;
 	void		print( int x, int y, char const c, char const color ) const;
 	void		flush( void );
