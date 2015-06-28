@@ -25,10 +25,19 @@ void	RAMModule::drawContent( int posX, int posY, int width, int height, Window c
 
 	(void)width;
 	(void)height;
+
 	int64_t physical_memory;
 	size_t length = sizeof(int64_t);
 	sysctlbyname("hw.memsize", &physical_memory, &length, NULL, 0);
 	string display = std::to_string(physical_memory / BSIZE) + BNAME;
+
+
+
+	sysctlbyname("vm.swapusage", &physical_memory, &length, NULL, 0);
+	display += "+" + std::to_string(physical_memory);
+
+
+
 	win.print(posX + 1, posY + 1, display.c_str());
 	
 	vm_size_t page_size;
