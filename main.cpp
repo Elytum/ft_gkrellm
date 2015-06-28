@@ -7,26 +7,21 @@
 #include "NameModule.hpp"
 #include "CPUmod.class.hpp"
 
-//TODO
-//remove all c++11 functiosn (to_string)
-//add all monitormodule function to IMonitorModule (sujet)
-// si possible, laisser addmodule utiliser Imonitormodule
-//add un IMonitorDisplay qui contient tout les print, printbox, et printline
 int		main( void )
 {
 	Window			win;
 	NameModule*		infoName = new NameModule();
-	RAMModule*		tooSmall = new RAMModule();
+	RAMModule*		infoRAM = new RAMModule();
 	OSinfo*			infoOS = new OSinfo();
 	TimeModule*		infoTime = new TimeModule();
 	CPUmod*			infoCPU = new CPUmod();
 
 	win.open();
-	win.addModule(tooSmall, 1);
-	win.addModule(infoOS, 2);
-	win.addModule(infoTime, 1);
 	win.addModule(infoName, 1);
-	win.addModule(infoCPU, 2);
+	win.addModule(infoTime, 1);
+	win.addModule(infoOS, 2);
+	win.addModule(infoRAM, 3);
+	win.addModule(infoCPU, 3);
 	while (42) {
 		win.refresh();
 		win.flush();

@@ -6,7 +6,7 @@
 /*   By: bwanlin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 22:21:20 by bwanlin           #+#    #+#             */
-/*   Updated: 2015/06/28 09:09:56 by bwanlin          ###   ########.fr       */
+/*   Updated: 2015/06/28 13:13:42 by bwanlin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ struct OScontainer
 	char		machine[256];
 	char		ostype[256];
 	char		osrelease[256];
-	int64_t		memsize;
 };
 
 class OSinfo : public MonitorModule
