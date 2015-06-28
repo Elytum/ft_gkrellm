@@ -1,22 +1,12 @@
 #include <Window.hpp>
 
+
 Window::Window() : opened(false),
-	window_red(NULL), window_green(NULL), window_blue(NULL),
-	window_yellow(NULL), window_white(NULL), main_window(NULL) {
+	window_white(NULL), main_window(NULL) {
 		modules.resize(MAX_WIDTH_MODULES);
 }
 
 Window::~Window() {
-	if (window_red)
-		delwin(window_red);
-	if (window_green)
-		delwin(window_green);
-	if (window_blue)
-		delwin(window_blue);
-	if (window_yellow)
-		delwin(window_yellow);
-	if (window_white)
-		delwin(window_white);
 	if (main_window)
 		delwin(main_window);
 }
@@ -41,18 +31,14 @@ void	Window::open( void ) {
 	opened = true;
 	initscr();
 
+
 	struct winsize w;
 	ioctl(0, TIOCGWINSZ, &w);
 	main_window = newwin(w.ws_row, w.ws_col, 0, 0);
 	keypad(main_window, TRUE);
 
-	window_red = derwin(main_window, w.ws_row, w.ws_col, 0, 0);
-	window_green = derwin(main_window, w.ws_row, w.ws_col, 0, 0);
-	window_blue = derwin(main_window, w.ws_row, w.ws_col, 0, 0);
-	window_yellow = derwin(main_window, w.ws_row, w.ws_col, 0, 0);
 	window_white = derwin(main_window, w.ws_row, w.ws_col, 0, 0);
 
-	init_color(COLOR_RED, 500, 500, 500);
 	start_color();
 
 	init_pair(1, COLOR_RED, COLOR_BLACK);
@@ -60,12 +46,20 @@ void	Window::open( void ) {
 	init_pair(3, COLOR_BLUE, COLOR_BLACK);
 	init_pair(4, COLOR_YELLOW, COLOR_BLACK);
 	init_pair(5, COLOR_WHITE, COLOR_BLACK);
+	init_pair(6, COLOR_MAGENTA, COLOR_BLACK);
+	init_pair(7, COLOR_CYAN, COLOR_BLACK);
+	init_pair(8, COLOR_BLACK, COLOR_RED);
+	init_pair(9, COLOR_BLACK, COLOR_GREEN);
+	init_pair(10, COLOR_BLACK, COLOR_BLUE);
+	init_pair(11, COLOR_BLACK, COLOR_YELLOW);
+	init_pair(12, COLOR_BLACK, COLOR_WHITE);
+	init_pair(13, COLOR_BLACK, COLOR_MAGENTA);
+	init_pair(14, COLOR_BLACK, COLOR_CYAN);
 
-	wbkgd(window_red, COLOR_PAIR(1));
-	wbkgd(window_green, COLOR_PAIR(2));
-	wbkgd(window_blue, COLOR_PAIR(3));
-	wbkgd(window_yellow, COLOR_PAIR(4));
-	wbkgd(window_white, COLOR_PAIR(5));
+
+	// init_color(COLOR_RED, 500, 500, 500);
+
+	// wbkgd(window_white, COLOR_PAIR(5));
 
 	noecho();
 	curs_set(FALSE);
@@ -78,15 +72,14 @@ void				Window::close( void )	{
 	endwin();
 }
 
-void	Window::clr( void ) const {
-
+void		Window::clr( void ) const {
 	werase(main_window);
 }
 
 void		Window::print( int x, int y, char const *c ) const {
 	if (x < 0 || y < 0 || x >= width || y >= height)
 		return ;
-	mvwprintw(main_window, y, x, c);
+	doPrint(x, y, c, WHITE);
 }
 
 void		Window::print( int x, int y, char const c ) const {
@@ -96,22 +89,54 @@ void		Window::print( int x, int y, char const c ) const {
 	tmp[1] = '\0';
 	if (x < 0 || y < 0 || x >= width || y >= height)
 		return ;
-	mvwprintw(main_window, y, x, tmp);
+	doPrint(x, y, tmp, WHITE);
+}
+
+void		Window::doPrint(int x, int y, const char *str, colorsKind color) const {
+	if (color) {
+		wattron(main_window, COLOR_PAIR(color));
+		mvwprintw(main_window, y, x, str);
+		wattroff(main_window, COLOR_PAIR(color));
+	} else
+		mvwprintw(main_window, y, x, str);
+}
+
+static colorsKind	getColor(char color) {
+	if (color == 'R')
+		return (RED);
+	else if (color == 'G')
+		return (GREEN);
+	else if (color == 'B')
+		return (BLUE);
+	else if (color == 'Y')
+		return (YELLOW);
+	else if (color == 'W')
+		return (WHITE);
+	else if (color == 'M')
+		return (MAGENTA);
+	else if (color == 'C')
+		return (CYAN);
+	else if (color == 'r')
+		return (REVERSE_RED);
+	else if (color == 'g')
+		return (REVERSE_GREEN);
+	else if (color == 'b')
+		return (REVERSE_BLUE);
+	else if (color == 'y')
+		return (REVERSE_YELLOW);
+	else if (color == 'w')
+		return (REVERSE_WHITE);
+	else if (color == 'm')
+		return (REVERSE_MAGENTA);
+	else if (color == 'c')
+		return (REVERSE_CYAN);
+	return (BLACK);
 }
 
 void		Window::print( int x, int y, char const *c, char const color ) const {
 	if (x < 0 || y < 0 || x >= width || y >= height)
 		return ;
-	if (color == 'R')
-		mvwprintw(window_red, y, x, c);
-	else if (color == 'G')
-		mvwprintw(window_green, y, x, c);
-	else if (color == 'B')
-		mvwprintw(window_blue, y, x, c);
-	else if (color == 'Y')
-		mvwprintw(window_yellow, y, x, c);
-	else if (color == 'W')
-		mvwprintw(window_white, y, x, c);
+	doPrint(x, y, c, getColor(color));
 }
 
 void		Window::print( int x, int y, char const c, char const color ) const {
@@ -120,16 +145,8 @@ void		Window::print( int x, int y, char const c, char const color ) const {
 	if (x < 0 || y < 0 || x >= width || y >= height)
 		return ;
 	tmp[0] = c;
-	if (color == 'R')
-		mvwprintw(window_red, y, x, tmp);
-	else if (color == 'G')
-		mvwprintw(window_green, y, x, tmp);
-	else if (color == 'B')
-		mvwprintw(window_blue, y, x, tmp);
-	else if (color == 'Y')
-		mvwprintw(window_yellow, y, x, tmp);
-	else if (color == 'W')
-		mvwprintw(window_white, y, x, tmp);
+	tmp[1] = '\0';
+	doPrint(x, y, tmp, getColor(color));
 }
 
 void		Window::printBox(int x, int y, int w, int h) const {
@@ -151,6 +168,7 @@ void		Window::printHLine(int x, int y, int w) const
 };
 
 void	Window::flush( void )	{
+	touchwin(main_window);
 	wrefresh(main_window);
 }
 

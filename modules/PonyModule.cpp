@@ -14,7 +14,7 @@
 
 #define REQUIRED_WIDTH 37
 #define REQUIRED_HEIGHT 9
-#define TICK_RATE 1000
+#define TICK_RATE 500
 
 PonyModule::PonyModule( void ): MonitorModule(REQUIRED_WIDTH, REQUIRED_HEIGHT, "Run pony !! Run !!") {
 

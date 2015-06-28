@@ -8,6 +8,7 @@
 #include "CPUmod.class.hpp"
 #include "PonyModule.hpp"
 #include "NetworkModule.hpp"
+#include "NyanCatModule.hpp"
 
 //TODO
 //remove all c++11 functiosn (to_string)
@@ -16,14 +17,16 @@
 //add un IMonitorDisplay qui contient tout les print, printbox, et printline
 int		main( void )
 {
-	Window			win;
-	NameModule*		infoName = new NameModule();
-	RAMModule*		tooSmall = new RAMModule();
-	OSinfo*			infoOS = new OSinfo();
-	TimeModule*		infoTime = new TimeModule();
-	CPUmod*			infoCPU = new CPUmod();
-	PonyModule*		infoPony = new PonyModule();
-	NetworkModule*	infoNetwork = new NetworkModule();
+
+	Window				win;
+	NameModule*			infoName = new NameModule();
+	RAMModule*			tooSmall = new RAMModule();
+	OSinfo*				infoOS = new OSinfo();
+	TimeModule*			infoTime = new TimeModule();
+	CPUmod*				infoCPU = new CPUmod();
+	PonyModule*			infoPony = new PonyModule();
+	NetworkModule*		infoNetwork = new NetworkModule();
+	NyanCatModule*		infoNyanCat = new NyanCatModule();
 
 	win.open();
 	win.addModule(tooSmall, 1);
@@ -33,6 +36,7 @@ int		main( void )
 	win.addModule(infoCPU, 2);
 	win.addModule(infoPony, 2);
 	win.addModule(infoNetwork, 3);
+	win.addModule(infoNyanCat, 3);
 	while (42) {
 		win.refresh();
 		win.flush();
