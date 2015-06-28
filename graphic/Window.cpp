@@ -69,6 +69,7 @@ void	Window::open( void ) {
 
 	noecho();
 	curs_set(FALSE);
+	nodelay(main_window, TRUE);
 }
 
 void				Window::close( void )	{
@@ -125,7 +126,7 @@ void	Window::flush( void )	{
 	wrefresh(main_window);
 }
 
-void		Window::addModule( MonitorModule & module, int row ) {
+void		Window::addModule( MonitorModule * module, int row ) {
 	modules[row].addModule(module);
 }
 

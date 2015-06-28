@@ -3,47 +3,44 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: achazal <achazal@student.42.fr>            +#+  +:+       +#+         #
+#    By: bwanlin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2014/11/03 11:54:29 by achazal           #+#    #+#              #
-#    Updated: 2015/06/28 01:24:28 by bwanlin          ###   ########.fr        #
+#    Created: 2015/06/09 19:27:02 by bwanlin           #+#    #+#              #
+#    Updated: 2015/06/28 02:11:58 by bwanlin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# -------------Compilateur------------------#
-CC = clang++
-CFLAGS = -Wall -Wextra -Werror
-#--------------Name-------------------------#
-NAME = ft_gkrellm
+CC		=	clang++
 
-#--------------Sources----------------------#
-SRCS =	main.cpp					\
-		graphic/ModuleRow.cpp		\
-		graphic/MonitorModule.cpp	\
-		graphic/Window.cpp			\
-		OSinfo.class.cpp			\
-		modules/RAMModule.cpp
+CFLAGS	=	-Wall -Werror -Wextra -g
 
-INC = -I./graphic -I./modules
+LDFLAGS	=
 
-OBJS	=	$(SRCS:.cpp=.o)
+SRC		=	graphic/ModuleRow.cpp		\
+			graphic/MonitorModule.cpp	\
+			graphic/Window.cpp			\
+			modules/Foobar.cpp			\
+			modules/OSinfo.class.cpp	\
+			modules/RAMModule.cpp
 
-#--------------Actions----------------------#
+INC		=	includes
 
-all: $(NAME)
+OBJ		=	$(SRC:.cpp=.o)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -lncurses -o $(NAME)
+EXE		=	ex00
 
-%.o: %.cpp
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+all		:	$(SRC) $(EXE)
 
-clean:
-	rm -f $(OBJS)
+$(EXE)	:	$(OBJ)
+	$(CC) -o $(EXE) $(CFLAGS) $(OBJ) $(LDFLAGS)
 
-fclean: clean
-	rm -f $(NAME)
+%.o:%.cpp
+	$(CC) $(CFLAGS) -I $(INC) -o $@ -c $<
 
-re: fclean all
+clean	:
+	rm -f $(OBJ)
 
-.PHONY: all, fclean, clean, re 
+fclean	:	clean
+	rm -f $(EXE)
+
+re		: fclean all

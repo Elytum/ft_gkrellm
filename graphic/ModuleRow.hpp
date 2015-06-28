@@ -12,14 +12,14 @@ class ModuleRow
 public:
 	ModuleRow( void );
 	~ModuleRow( void );
-	void								addModule( MonitorModule & mod );
-	const std::vector<MonitorModule>	getModules( void ) const;
+	void								addModule( MonitorModule * mod );
+	const std::vector<MonitorModule *>	getModules( void ) const;
 	int									getWidth( void ) const;
 	MonitorModule&						operator[]( int pos );
 	void								draw( int x, int y, Window const & win ) const;
 private:
 	int							width;
-	std::vector<MonitorModule>	modules;
+	std::vector<MonitorModule *>	modules;
 };
 
 #include <Window.hpp>

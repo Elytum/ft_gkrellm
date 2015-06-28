@@ -5,10 +5,16 @@
 MonitorModule::MonitorModule( void ) : _height(DEFAULT_HEIGHT), _title("")	{
 }
 
-MonitorModule::MonitorModule( const char *name ) : _height(DEFAULT_HEIGHT), _title(name)	{
+MonitorModule::MonitorModule( int height ) : _height(height), _title("")	{
 }
 
-MonitorModule::MonitorModule( MonitorModule const & cpy ) : _title(cpy.getTitle()) {
+MonitorModule::MonitorModule( const char *title ) : _height(DEFAULT_HEIGHT), _title(title)	{
+}
+
+MonitorModule::MonitorModule( int height, const char *title ) : _height(height), _title(title)	{
+}
+
+MonitorModule::MonitorModule( MonitorModule const & cpy ) : _title(cpy._title) {
 	*this = cpy;
 }
 
@@ -36,52 +42,35 @@ void		MonitorModule::draw( int posX, int posY, int width, Window const & win ) c
 	const int	bufSize = 1024;
 	static char	tmp[bufSize];
 
-	// int x;
-
-	// win.print(posX, posY, "/");
-	// win.print(posX + width, posY, "\\");
-	// win.print(posX, posY + _height, "\\");
-	// win.print(posX + width, posY + _height, "/");
-
-	for (int x = 0; x < width; ++x) {
+	for (int x = 0; x <= width; ++x) {
 		win.print(posX + x, posY, "_");
 		win.print(posX + x, posY + _height, "_");
 	}
-	for (int y = 1; y < _height; ++y) {
+	for (int y = 1; y <= _height; ++y) {
 		win.print(posX, posY + y, "|");
-		win.print(posX + _height, posY + y, "|");
+		win.print(posX + width, posY + y, "|");
 	}
 
-	int diff = width - 2 - _title.size();
-	if (diff > 0) {
-		// int before = diff / 2;
-		// int after = diff - before;
-
-		// memset(tmp, ' ', before);
-		// memcpy(tmp + before, _title.c_str(), _title.size());
-		// memset(tmp + before + _title.size(), ' ', after);
-		// tmp[before + _title.size() + after] = '\0';
-		win.print(posX + 1 + diff / 2, posY + 1, _title.c_str());
-	} else if (diff == 0)
-		win.print(posX + 1, posY + 1, _title.c_str());
-	else {
-		memcpy(tmp, _title.c_str(), bufSize);
-		if (bufSize >= 2 && width - 2 < bufSize) {
-			tmp[width - 2] = '.';
-			tmp[width - 1] = '\0';
-			win.print(posX + 1, posY + 1, tmp);
+	if (_title.size()) {
+		for (int x = 1; x < width; ++x)
+			win.print(posX + x, posY + 2, "-");
+		int diff = width - 2 - _title.size();
+		if (diff > 0) {
+			win.print(posX + 1 + diff / 2, posY + 1, _title.c_str());
+			drawContent(posX + 1, posY + 3, width - 1, _height - 3, win);
+		}
+		else if (diff == 0) {
+			win.print(posX + 1, posY + 1, _title.c_str());
+			drawContent(posX + 1, posY + 3, width - 1, _height - 3, win);
+		}
+		else if (bufSize >= 2 && width - 2 < bufSize) {
+				memcpy(tmp, _title.c_str(), bufSize);
+				tmp[width - 2] = '.';
+				tmp[width - 1] = '\0';
+				win.print(posX + 1, posY + 1, tmp);
+				drawContent(posX + 1, posY + 1, width - 1, _height - 3, win);
 		}
 	}
-	// win.print(posX + 1, posY + 1, tmp);
-	// win.print(20, 20, _name);
-	// (void)_name;
-	(void)_title;
-	// while (y < _height) {
-	// 	x = 0;
-	// 	while (x < width) {
-	// 		win.print(posX + x, posY + y, "m");
-	// 		++x;
-	// 	}
-	// 	++y;
-	// }
+	else
+		drawContent(posX + 1, posY + 1, width - 1, _height - 1, win);
 }
