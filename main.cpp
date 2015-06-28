@@ -10,6 +10,7 @@
 #include "NetworkModule.hpp"
 #include "NyanCatModule.hpp"
 #include "Tools.class.hpp"
+#include "NetworkModule.hpp"
 int		main( void )
 {
 
@@ -22,6 +23,7 @@ int		main( void )
 	PonyModule*			infoPony = new PonyModule();
 	NyanCatModule*		infoNyanCat = new NyanCatModule();
 	Tools*				infoTools = new Tools();
+	NetworkModule*		infoNetwork = new NetworkModule();
 
 	win.open();
 	win.addModule(infoName, 1);
@@ -32,6 +34,31 @@ int		main( void )
 	win.addModule(infoOS, 2);
 	win.addModule(infoRAM, 3);
 	win.addModule(infoCPU, 3);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
+	win.addModule(infoNetwork, 1);
 	while (42) {
 		win.refresh();
 		win.flush();
