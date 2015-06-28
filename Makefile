@@ -3,45 +3,51 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bwanlin <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: achazal <achazal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/09 19:27:02 by bwanlin           #+#    #+#              #
-#    Updated: 2015/06/28 02:23:26 by bwanlin          ###   ########.fr        #
+#    Updated: 2015/06/28 03:21:24 by bwanlin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		=	clang++
+# -------------Compilateur------------------#
+CC = clang++
+CFLAGS = -Wall -Wextra -Werror
+#--------------Name-------------------------#
+NAME = ft_gkrellm
 
-CFLAGS	=	-Wall -Werror -Wextra -g
+#--------------Sources----------------------#
+SRCS =	main.cpp					\
+		graphic/ModuleRow.cpp		\
+		graphic/MonitorModule.cpp	\
+		graphic/Window.cpp			\
+		modules/OSinfo.class.cpp	\
+		modules/RAMModule.cpp		\
+		modules/FooBar.cpp			\
+		modules/TimeModule.cpp
 
-LDFLAGS	=	-lncurses
+INC = 	includes
 
-SRC		=	graphic/ModuleRow.cpp		\
-			graphic/MonitorModule.cpp	\
-			graphic/Window.cpp			\
-			modules/Foobar.cpp			\
-			modules/OSinfo.class.cpp	\
-			modules/RAMModule.cpp		\
-			main.cpp
+OBJS	=	$(SRCS:.cpp=.o)
 
-INC		=	includes
+#--------------Actions----------------------#
 
-OBJ		=	$(SRC:.cpp=.o)
+all: $(NAME)
 
 EXE		=	ft_gkrellm
 
-all		:	$(SRC) $(EXE)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -I $(INC) -lncurses -o $(NAME)
 
-$(EXE)	:	$(OBJ)
-	$(CC) -o $(EXE) $(CFLAGS) $(OBJ) $(LDFLAGS)
+%.o: %.cpp
+	$(CC) $(CFLAGS) -I $(INC) -c $< -o $@
 
-%.o:%.cpp
-	$(CC) $(CFLAGS) -I $(INC) -o $@ -c $<
+clean:
+	rm -f $(OBJS)
 
-clean	:
-	rm -f $(OBJ)
+fclean: clean
+	rm -f $(NAME)
 
-fclean	:	clean
-	rm -f $(EXE)
+re: fclean all
 
-re		: fclean all
+.PHONY: all, fclean, clean, re 
