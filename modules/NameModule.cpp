@@ -37,11 +37,11 @@ void		NameModule::drawContent( int posX, int posY, int width, int height, Window
 	std::string		username;
 
 	char	rawHostName[150];
-	char	*rawUserName;
+	char	rawUserName[150];
 	int		i = 0;
 
 	gethostname(rawHostName, 150);
-	rawUserName = getlogin();
+	getlogin_r(rawUserName, 150);
 
 	while ( rawHostName[i] != '\0' )
 	{
