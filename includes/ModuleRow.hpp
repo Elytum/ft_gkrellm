@@ -16,7 +16,7 @@ public:
 	const std::vector<MonitorModule *>	getModules( void ) const;
 	int									getWidth( void ) const;
 	MonitorModule&						operator[]( int pos );
-	void								draw( int x, int y, Window const & win ) const;
+	void								draw( int x, int y, Window const & win );
 private:
 	int								width;
 	std::vector<MonitorModule *>	modules;

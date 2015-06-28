@@ -132,6 +132,24 @@ void		Window::print( int x, int y, char const c, char const color ) const {
 		mvwprintw(window_white, y, x, tmp);
 }
 
+void		Window::printBox(int x, int y, int w, int h) const {
+	mvwaddch(window_white, y, x, ACS_PLUS);
+	mvwaddch(window_white, y, x + w, ACS_PLUS);
+	mvwaddch(window_white, y + h, x, ACS_PLUS);
+	mvwaddch(window_white, y + h, x + w, ACS_PLUS);
+	mvwhline(window_white, y, x + 1, ACS_HLINE, w - 1);
+	mvwhline(window_white, y + h, x + 1, ACS_HLINE, w - 1);
+	mvwvline(window_white, y + 1, x, '|', h - 1);
+	mvwvline(window_white, y + 1, x + w, '|', h - 1);
+}
+
+void		Window::printHLine(int x, int y, int w) const
+{
+	mvwaddch(window_white, y, x, ACS_PLUS);
+	mvwaddch(window_white, y, x + w, ACS_PLUS);
+	mvwhline(window_white, y, x + 1, ACS_HLINE, w - 1);
+};
+
 void	Window::flush( void )	{
 	wrefresh(main_window);
 }
@@ -140,7 +158,7 @@ void		Window::addModule( MonitorModule * module, int row ) {
 	modules[row].addModule(module);
 }
 
-void		Window::refresh( void ) const {
+void		Window::refresh( void ) {
 	int	i = modules.size();
 	int p = 0;
 	int posX = 0;

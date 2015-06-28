@@ -9,10 +9,10 @@
 int		main( void )
 {
 	Window			win;
-	//FooBar*			tooSmall = new FooBar("");
-	//OSinfo*			infoOS = new OSinfo();
-	//TimeModule*		infoTime = new TimeModule();
 	NameModule*		infoName = new NameModule();
+	RAMModule*		tooSmall = new RAMModule();
+	OSinfo*			infoOS = new OSinfo();
+	TimeModule*		infoTime = new TimeModule();
 
 	win.open();
 	//win.addModule(tooSmall, 42);

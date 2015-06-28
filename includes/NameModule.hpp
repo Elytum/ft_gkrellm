@@ -1,17 +1,17 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   TimeModule.hpp                                     :+:      :+:    :+:   //
+//   NameModule.hpp                                     :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: hmoutaou <marvin@42.fr>                    +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2015/06/28 00:51:24 by hmoutaou          #+#    #+#             //
-/*   Updated: 2015/06/28 03:20:19 by bwanlin          ###   ########.fr       */
+//   Created: 2015/06/28 03:58:25 by hmoutaou          #+#    #+#             //
+//   Updated: 2015/06/28 03:58:26 by hmoutaou         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef TIMEMODULE_HPP
-# define TIMEMODULE_HPP
+#ifndef NAMEMODULE_HPP
+# define NAMEMODULE_HPP
 
 # include <string>
 # include <iostream>
@@ -30,17 +30,17 @@ typedef unsigned int uint;
 #include <mach/mach_host.h>
 
 
-class	TimeModule:public MonitorModule
+class	NameModule:public MonitorModule
 {
 public:
-	TimeModule( void );
-	TimeModule( char * );
-	TimeModule( TimeModule const& rhs );
-	~TimeModule( void );
+	NameModule( void );
+	NameModule( char * );
+	NameModule( NameModule const& rhs );
+	~NameModule( void );
 
-	TimeModule &	operator=( TimeModule const& rhs );
+	NameModule &	operator=( NameModule const& rhs );
 // private:
-	virtual void		drawContent( int x, int y, int w, int h, Window const& );
+	virtual void		drawContent( int x, int y, int w, int h, Window const& ) const;
 };
 
 #endif
